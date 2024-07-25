@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://bpuyvbgkdpw00"]
+
+[ext_resource type="Script" path="res://Scripts/shop.gd" id="1_so8bc"]
+[ext_resource type="Texture2D" uid="uid://cqe2ut3n8pl3g" path="res://Assets/spritesheet (6).png" id="2_vrfnq"]
+[ext_resource type="Texture2D" uid="uid://bxvd077omnvaj" path="res://Assets/pixil-frame-0 (12).png" id="4_11o43"]
+[ext_resource type="PackedScene" uid="uid://cyd4m3ilc8ewv" path="res://Scenes/shopmenu.tscn" id="4_ecx0y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwo4t"]
+atlas = ExtResource("2_vrfnq")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w83rd"]
+atlas = ExtResource("2_vrfnq")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w26de"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwo4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w83rd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sih5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_11o43")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd78j"]
+size = Vector2(24, 2)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8odvn"]
+radius = 37.0135
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8nag"]
+size = Vector2(22, 12)
+
+[node name="Shop" type="StaticBody2D"]
+script = ExtResource("1_so8bc")
+
+[node name="Worker" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6, -3)
+sprite_frames = SubResource("SpriteFrames_w26de")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.88372
+flip_h = true
+
+[node name="ShopArt" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -10)
+sprite_frames = SubResource("SpriteFrames_sih5c")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_jd78j")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(6, -12, 6, -14, 5, -14, 5, -15, 3, -15, 3, -16, -3, -16, -3, -15, -5, -15, -5, -14, -6, -14, -6, -12)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_8odvn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_b8nag")
+
+[node name="shopmenu" parent="." instance=ExtResource("4_ecx0y")]
+visible = true
+position = Vector2(-30, -54)
+scale = Vector2(0.2, 0.2)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

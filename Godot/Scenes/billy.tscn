@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bk044ya3dinr1"]
+[gd_scene load_steps=23 format=3 uid="uid://bk044ya3dinr1"]
 
 [ext_resource type="Script" path="res://Scripts/billy.gd" id="1_kd88v"]
 [ext_resource type="Texture2D" uid="uid://d351tg5im533y" path="res://Assets/billy_basic_idle.png" id="1_xs6ob"]
 [ext_resource type="Texture2D" uid="uid://c5ot7udwh5rbo" path="res://Assets/billy_basic_walk.png" id="2_77upu"]
+[ext_resource type="Texture2D" uid="uid://c14qgrxqum2kr" path="res://Assets/billy_basic_shovel.png" id="3_26cgs"]
 [ext_resource type="Texture2D" uid="uid://c3eee6672alk8" path="res://Assets/billy_basic_mine.png" id="3_fllxp"]
+[ext_resource type="Texture2D" uid="uid://b4lfuhxqrld27" path="res://Assets/billy_basic_shovel_walk.png" id="6_hkeei"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbrne"]
 atlas = ExtResource("1_xs6ob")
@@ -11,6 +13,14 @@ region = Rect2(0, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ushwf"]
 atlas = ExtResource("1_xs6ob")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2hua"]
+atlas = ExtResource("3_26cgs")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pw60"]
+atlas = ExtResource("3_26cgs")
 region = Rect2(10, 0, 10, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4om7"]
@@ -37,6 +47,22 @@ region = Rect2(20, 0, 10, 10)
 atlas = ExtResource("2_77upu")
 region = Rect2(30, 0, 10, 10)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jph5s"]
+atlas = ExtResource("6_hkeei")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_provu"]
+atlas = ExtResource("6_hkeei")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc4aj"]
+atlas = ExtResource("6_hkeei")
+region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng05k"]
+atlas = ExtResource("6_hkeei")
+region = Rect2(30, 0, 10, 10)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_rw242"]
 animations = [{
 "frames": [{
@@ -48,6 +74,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2hua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pw60")
+}],
+"loop": true,
+"name": &"idle_basic_shovel",
 "speed": 2.0
 }, {
 "frames": [{
@@ -77,6 +114,23 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jph5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_provu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc4aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng05k")
+}],
+"loop": true,
+"name": &"walk_basic_shovel",
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wr6qg"]
@@ -89,9 +143,8 @@ script = ExtResource("1_kd88v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_rw242")
-animation = &"mine"
+animation = &"walk_basic_shovel"
 autoplay = "idle"
-frame_progress = 0.222438
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)
