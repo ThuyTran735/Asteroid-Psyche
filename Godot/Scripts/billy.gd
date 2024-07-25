@@ -17,8 +17,8 @@ func _physics_process(delta):
 	# Get the global position of the player
 	var player_pos = global_position
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	# Handles jump with "w" and up arrow"
+	if (Input.is_action_just_pressed("jump") and is_on_floor()) or (Input.is_action_just_pressed("ui_up") and is_on_floor()):
 		velocity.y = JUMP_VELOCITY
 
 	# Gets the input direction: -1 (Left), 0 (Nothing), 1 (Right)
