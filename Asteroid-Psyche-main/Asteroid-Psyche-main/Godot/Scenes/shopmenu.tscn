@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyd4m3ilc8ewv"]
+
+[ext_resource type="Script" path="res://shopmenu.gd" id="1_me1jb"]
+[ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Basic_Pickaxe.png" id="2_yo4a6"]
+[ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Basic_Shovel.png" id="3_vsf11"]
+[ext_resource type="Texture2D" uid="uid://mo6xitljy3ei" path="res://Assets/pixil-frame-0 (17).png" id="4_1oft2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bodoe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yo4a6")
+}],
+"loop": true,
+"name": &"Basic_Pickaxe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vsf11")
+}],
+"loop": true,
+"name": &"Basic_Shovel",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wj3jv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1oft2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="shopmenu" type="StaticBody2D"]
+visible = false
+script = ExtResource("1_me1jb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 1.0
+offset_right = 303.0
+offset_bottom = 151.0
+color = Color(0.172549, 0.172549, 0.172549, 0.376471)
+metadata/_edit_use_anchors_ = true
+
+[node name="icon" type="AnimatedSprite2D" parent="."]
+position = Vector2(27, 32)
+scale = Vector2(7.1, 7.5)
+sprite_frames = SubResource("SpriteFrames_bodoe")
+animation = &"Basic_Pickaxe"
+
+[node name="ButtonLeft" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+offset_left = 7.0
+offset_top = 105.0
+offset_right = 54.0
+offset_bottom = 144.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonLeftIcon" type="AnimatedSprite2D" parent="."]
+position = Vector2(30, 122)
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_wj3jv")
+
+[node name="ButtonRight" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+offset_left = 64.0
+offset_top = 104.5
+offset_right = 111.0
+offset_bottom = 143.5
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonRightIcon" type="AnimatedSprite2D" parent="."]
+position = Vector2(88, 121.5)
+scale = Vector2(4.5, 4.5)
+sprite_frames = SubResource("SpriteFrames_wj3jv")
+flip_h = true
+
+[node name="PriceLabel" type="RichTextLabel" parent="."]
+offset_left = 63.0
+offset_top = 11.0
+offset_right = 163.0
+offset_bottom = 80.0
+text = "$10
+2 Damage
+1.5x Money"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonBuyColor" type="ColorRect" parent="."]
+anchors_preset = -1
+offset_left = 223.0
+offset_top = 73.0
+offset_right = 293.0
+offset_bottom = 142.0
+color = Color(1, 0.164706, 0.164706, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonBuy" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+offset_left = 223.0
+offset_top = 73.0
+offset_right = 293.0
+offset_bottom = 142.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ButtonLeft" to="." method="_on_button_left_pressed"]
+[connection signal="pressed" from="ButtonRight" to="." method="_on_button_right_pressed"]
+[connection signal="pressed" from="ButtonBuy" to="." method="_on_button_buy_pressed"]

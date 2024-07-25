@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnoferxl2wl4t"]
+
+[ext_resource type="PackedScene" uid="uid://bk044ya3dinr1" path="res://Scenes/billy.tscn" id="1_75q7w"]
+[ext_resource type="Script" path="res://Scenes/asteroid_psyche.gd" id="1_nudaw"]
+[ext_resource type="Texture2D" uid="uid://dmdvhnv0ho45e" path="res://Assets/spritesheet (2).png" id="2_jw6uf"]
+[ext_resource type="Script" path="res://Scripts/TileMap.gd" id="3_lwx1y"]
+[ext_resource type="PackedScene" uid="uid://bpuyvbgkdpw00" path="res://Scenes/shop.tscn" id="4_vvju7"]
+[ext_resource type="Script" path="res://Scenes/Money.gd" id="6_y0pvf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwppk"]
+texture = ExtResource("2_jw6uf")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
+
+[sub_resource type="TileSet" id="TileSet_jcrur"]
+tile_size = Vector2i(10, 10)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_kwppk")
+
+[node name="Asteroid Psyche" type="Node2D"]
+script = ExtResource("1_nudaw")
+
+[node name="Billy" parent="." instance=ExtResource("1_75q7w")]
+position = Vector2(0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Billy"]
+position = Vector2(0, -3)
+zoom = Vector2(6, 6)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_jcrur")
+format = 2
+layer_0/tile_data = PackedInt32Array(65534, 0, 0, 131071, 196608, 0, 65535, 196608, 0, 131072, 0, 0, 65536, 0, 0, 196606, 0, 0, 196607, 131072, 0, 131070, 196608, 0, 1, 196608, 0, 65537, 196608, 0, 65538, 131072, 0, 131073, 196608, 0, 131074, 0, 0, 131075, 196608, 0, 131076, 196608, 0, 65540, 196608, 0, 4, 65536, 0, 3, 196608, 0, 65539, 65536, 0, 2, 196608, 0, 0, 131072, 0, 65533, 65536, 0, 65532, 196608, 0, 131068, 196608, 0, 131067, 131072, 0, 196603, 196608, 0, 196604, 0, 0, 131069, 196608, 0, 65531, 0, 0, 65530, 196608, 0, 196605, 65536, 0, 196602, 131072, 0, 196601, 196608, 0, 131065, 0, 0, 131066, 131072, 0, 65529, 65536, 0, 65541, 65536, 0, 65542, 196608, 0, 6, 196608, 0, 5, 0, 0, 131077, 0, 0, 131078, 65536, 0)
+script = ExtResource("3_lwx1y")
+
+[node name="Shop" parent="." instance=ExtResource("4_vvju7")]
+position = Vector2(59, 0)
+
+[node name="MoneyLabels" type="StaticBody2D" parent="."]
+
+[node name="Money" type="RichTextLabel" parent="MoneyLabels"]
+offset_left = -70.0
+offset_top = -46.0
+offset_right = 16.0
+text = "Money: $999999"
+script = ExtResource("6_y0pvf")
