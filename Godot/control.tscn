@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://rt82t7f8sx1p"]
+
+[sub_resource type="GDScript" id="GDScript_uel04"]
+script/source = "extends Control
+
+# Total time for the level in seconds
+var total_time: int = 300  # Example: 5 minutes
+
+# Called when the node enters the scene tree for the first time
+func _ready():
+	# Connect the timer's timeout signal to the function
+	$\"Air Left\".connect(\"timeout\", _on_air_left_timeout)
+	# Start the timer
+	$\"Air Left\".start()
+
+# Function called when the timer times out
+func _on_air_left_timeout():
+	# Decrease the total time by 1 second
+	total_time -= 1
+
+	# Format time as MM:SS
+	var minutes: int = total_time / 60
+	var seconds: int = total_time % 60
+	$\"Air Left Display\".text = str(minutes).pad_zeros(2) + \":\" + str(seconds).pad_zeros(2)
+
+	# Check if the time has run out
+	if total_time <= 0:
+		game_over()
+
+# Function to handle game over state
+func game_over():
+	# Stop the timer
+	$\"Air Left Display\".stop()
+	# Implement game over logic, such as showing a game over screen
+	print(\"Time's up! Game Over!\")
+
+
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_uel04")
+
+[node name="Air Left" type="Timer" parent="."]
+autostart = true
+
+[node name="Air Left Display" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="Air Left" to="." method="_on_air_left_timeout"]

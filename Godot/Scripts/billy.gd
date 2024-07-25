@@ -3,16 +3,14 @@ extends CharacterBody2D
 
 const SPEED = 50
 const JUMP_VELOCITY = -200
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+const GRAVITY = 400
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += GRAVITY * delta
 	
 	# Get the global mouse position
 	var mouse_pos = get_global_mouse_position()

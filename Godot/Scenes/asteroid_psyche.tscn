@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnoferxl2wl4t"]
+[gd_scene load_steps=7 format=3 uid="uid://bnoferxl2wl4t"]
 
 [ext_resource type="PackedScene" uid="uid://bk044ya3dinr1" path="res://Scenes/billy.tscn" id="1_75q7w"]
+[ext_resource type="Script" path="res://Scenes/asteroid_psyche.gd" id="1_w7clo"]
 [ext_resource type="Texture2D" uid="uid://dmdvhnv0ho45e" path="res://Assets/spritesheet (2).png" id="2_jw6uf"]
 [ext_resource type="Script" path="res://Scripts/TileMap.gd" id="3_lwx1y"]
 
@@ -30,6 +31,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kwppk")
 
 [node name="Asteroid Psyche" type="Node2D"]
+script = ExtResource("1_w7clo")
 
 [node name="Billy" parent="." instance=ExtResource("1_75q7w")]
 position = Vector2(0, 0)
@@ -45,3 +47,11 @@ tile_set = SubResource("TileSet_jcrur")
 format = 2
 layer_0/tile_data = PackedInt32Array(65534, 0, 0, 131071, 196608, 0, 65535, 196608, 0, 131072, 0, 0, 65536, 0, 0, 196606, 0, 0, 196607, 131072, 0, 131070, 196608, 0, 1, 196608, 0, 65537, 196608, 0, 65538, 131072, 0, 131073, 196608, 0, 131074, 0, 0, 131075, 196608, 0, 131076, 196608, 0, 65540, 196608, 0, 4, 65536, 0, 3, 196608, 0, 65539, 65536, 0, 2, 196608, 0, 0, 131072, 0, 65533, 65536, 0, 65532, 196608, 0, 131068, 196608, 0, 131067, 131072, 0, 196603, 196608, 0, 196604, 0, 0, 131069, 196608, 0, 65531, 0, 0, 65530, 196608, 0, 196605, 65536, 0, 196602, 131072, 0, 196601, 196608, 0, 131065, 0, 0, 131066, 131072, 0, 65529, 65536, 0, 65541, 65536, 0, 65542, 196608, 0, 6, 196608, 0, 5, 0, 0, 131077, 0, 0, 131078, 65536, 0)
 script = ExtResource("3_lwx1y")
+
+[node name="Air Left" type="Timer" parent="."]
+
+[node name="Air Left Display" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="Air Left" to="." method="_on_air_left_timeout"]
