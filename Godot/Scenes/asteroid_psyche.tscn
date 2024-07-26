@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnoferxl2wl4t"]
+[gd_scene load_steps=12 format=3 uid="uid://bnoferxl2wl4t"]
 
 [ext_resource type="PackedScene" uid="uid://bk044ya3dinr1" path="res://Scenes/billy.tscn" id="1_75q7w"]
 [ext_resource type="Script" path="res://Scripts/asteroid_psyche.gd" id="1_nudaw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/TileMap.gd" id="3_lwx1y"]
 [ext_resource type="PackedScene" uid="uid://bpuyvbgkdpw00" path="res://Scenes/shop.tscn" id="4_vvju7"]
 [ext_resource type="Script" path="res://Scripts/Money.gd" id="6_y0pvf"]
+[ext_resource type="PackedScene" uid="uid://rt82t7f8sx1p" path="res://control.tscn" id="7_6j2rb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fr4a"]
 texture = ExtResource("2_wrd71")
@@ -49,7 +50,7 @@ fill = 1
 fill_from = Vector2(0.509174, 0.5)
 fill_to = Vector2(0.701835, 0.311927)
 
-[node name="Asteroid Psyche" type="Node2D"]
+[node name="Asteroid_Psyche" type="Node2D"]
 script = ExtResource("1_nudaw")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -80,13 +81,10 @@ scale = Vector2(0.5, 0.5)
 text = "Money: $999999"
 script = ExtResource("6_y0pvf")
 
+[node name="Control" parent="Billy" instance=ExtResource("7_6j2rb")]
+script = null
+
+[node name="Inv_Ui" parent="Billy" instance=ExtResource("7_6j2rb")]
+
 [node name="Shop" parent="." instance=ExtResource("4_vvju7")]
 position = Vector2(59, 0)
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -25.0
-offset_top = -45.0
-offset_right = 15.0
-offset_bottom = -5.0

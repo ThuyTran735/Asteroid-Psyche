@@ -9,6 +9,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+#inventory stuff
+@export var inv: Inv 
 
 func _physics_process(delta):
 	# Add the gravity.
