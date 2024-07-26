@@ -1,12 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyd4m3ilc8ewv"]
+[gd_scene load_steps=8 format=3 uid="uid://cyd4m3ilc8ewv"]
 
 [ext_resource type="Script" path="res://Scripts/shopmenu.gd" id="1_gf40d"]
+[ext_resource type="Texture2D" uid="uid://d27wixwq8pnhq" path="res://Assets/Basic_Gun.png" id="2_x4eco"]
 [ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Basic_Pickaxe.png" id="2_yo4a6"]
 [ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Basic_Shovel.png" id="3_vsf11"]
 [ext_resource type="Texture2D" uid="uid://mo6xitljy3ei" path="res://Assets/pixil-frame-0 (17).png" id="4_1oft2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bodoe"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x4eco")
+}],
+"loop": true,
+"name": &"Basic_Gun",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_yo4a6")

@@ -82,3 +82,11 @@ script = ExtResource("6_y0pvf")
 
 [node name="Shop" parent="." instance=ExtResource("4_vvju7")]
 position = Vector2(59, 0)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -25.0
+offset_top = -45.0
+offset_right = 15.0
+offset_bottom = -5.0

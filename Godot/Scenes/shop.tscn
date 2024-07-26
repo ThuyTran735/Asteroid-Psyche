@@ -80,7 +80,6 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_b8nag")
 
 [node name="shopmenu" parent="." instance=ExtResource("4_ecx0y")]
-visible = true
 position = Vector2(-30, -54)
 scale = Vector2(0.2, 0.2)
 
