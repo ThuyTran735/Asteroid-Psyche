@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyd4m3ilc8ewv"]
+[gd_scene load_steps=9 format=3 uid="uid://cyd4m3ilc8ewv"]
 
 [ext_resource type="Script" path="res://Scripts/shopmenu.gd" id="1_gf40d"]
-[ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Billy/Billy Basic Shovel/Basic_Pickaxe.png" id="2_lgi4a"]
+[ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Shop/Tools/Basic_Pickaxe.png" id="2_eqrkt"]
 [ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Shop/Tools/Basic_Shovel.png" id="3_nver4"]
-[ext_resource type="Texture2D" uid="uid://mo6xitljy3ei" path="res://Assets/Shop/white_arrow.png" id="4_4wrbr"]
+[ext_resource type="Texture2D" uid="uid://mo6xitljy3ei" path="res://Assets/pixil-frame-0 (17).png" id="4_4wrbr"]
+[ext_resource type="Texture2D" uid="uid://bhkys836o1wun" path="res://Assets/Shop/Tools/Small_Drill.png" id="4_p0pi8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o1td"]
+atlas = ExtResource("2_eqrkt")
+region = Rect2(0, 2, 10, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bodoe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lgi4a")
+"texture": SubResource("AtlasTexture_7o1td")
 }],
 "loop": true,
 "name": &"Basic_Pickaxe",
@@ -21,6 +26,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Basic_Shovel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_p0pi8")
+}],
+"loop": true,
+"name": &"Small_Drill",
 "speed": 5.0
 }]
 
@@ -46,7 +59,7 @@ color = Color(0.172549, 0.172549, 0.172549, 0.376471)
 metadata/_edit_use_anchors_ = true
 
 [node name="icon" type="AnimatedSprite2D" parent="."]
-position = Vector2(27, 32)
+position = Vector2(27, 56)
 scale = Vector2(7.1, 7.5)
 sprite_frames = SubResource("SpriteFrames_bodoe")
 animation = &"Basic_Pickaxe"
@@ -81,11 +94,12 @@ flip_h = true
 [node name="PriceLabel" type="RichTextLabel" parent="."]
 offset_left = 63.0
 offset_top = 11.0
-offset_right = 213.0
+offset_right = 288.0
 offset_bottom = 111.0
-text = "$10
-2 Damage
-1.5x Money"
+text = "name
+price
+damage
+money x"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 

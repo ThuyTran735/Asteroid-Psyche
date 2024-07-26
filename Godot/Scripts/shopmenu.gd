@@ -1,73 +1,91 @@
 extends StaticBody2D
 
-# Item 1 = Basic Shovel, Item 2 = Basic Pickaxe
+# Item definitions
 var item = 1
-
 var item1price = 10
 var item2price = 50
+var item3price = 125
 
 var item1owned = false
 var item2owned = false
+var item3owned = false
 
 var price
 
 func _ready():
-	$icon.play("Basic_Shovel")
-	item = 1
+	update_shop_ui()
 
 func _physics_process(_delta):
-	if self.visible == true:
-		# Basic Shovel
-		if item == 1:
+	if self.visible:
+		update_shop_ui()
+
+func update_shop_ui():
+	match item:
+		1:
 			$icon.play("Basic_Shovel")
 			$PriceLabel.text = "Simple Shovel:\n$10\n2 Damage\n1.5x Money"
-			if Global.money >= item1price:
-				$ButtonBuy.modulate = Color(0.058, 0.611, 0.098) # Green
-			else:
-				$ButtonBuy.modulate = Color(1, 0, 0) # Red
-			
-		# Basic Pickaxe
-		if item == 2:
+			$ButtonBuy.modulate = Color(0.058, 0.611, 0.098) if Global.money >= item1price and not item1owned else Color(1, 0, 0)
+			$ButtonBuy.disabled = Global.money < item1price or item1owned
+		2:
 			$icon.play("Basic_Pickaxe")
-			$PriceLabel.text = "Simple Pickaxe:\n$50\n4 Damage\n2.25x Money"
-			if Global.money >= item2price:
-				$ButtonBuy.modulate = Color(0.058, 0.611, 0.098) # Green
-			else:
-				$ButtonBuy.modulate = Color(1, 0, 0) # Red
-
+			$PriceLabel.text = "Simple Pickaxe:\n$50\n4 Damage\n2.5x Money"
+			$ButtonBuy.modulate = Color(0.058, 0.611, 0.098) if Global.money >= item2price and not item2owned else Color(1, 0, 0)
+			$ButtonBuy.disabled = Global.money < item2price or item2owned
+		3:
+			$icon.play("Small_Drill")
+			$PriceLabel.text = "Small Drill:\n$125\n8 Damage\n4x Money"
+			$ButtonBuy.modulate = Color(0.058, 0.611, 0.098) if Global.money >= item3price and not item3owned else Color(1, 0, 0)
+			$ButtonBuy.disabled = Global.money < item3price or item3owned
 
 func _on_button_left_pressed():
 	swap_item_back()
+
 func _on_button_right_pressed():
 	swap_item_forward()
+
 func _on_button_buy_pressed():
 	print("Buying...")
-	if item == 1:
-		price = item1price
-		if Global.money >= price:
-			if item1owned == false:
+	match item:
+		1:
+			price = item1price
+			if Global.money >= price and not item1owned:
 				buy()
+				item1owned = true
 				print("Bought Basic Shovel")
-	elif item == 2: 
-		price = item2price
-		if Global.money >= price:
-			if item2owned == false:
+		2:
+			price = item2price
+			if Global.money >= price and not item2owned:
 				buy()
+				item2owned = true
+				print("Bought Basic Pickaxe")
+		3:
+			price = item3price
+			if Global.money >= price and not item3owned:
+				buy()
+				item3owned = true
+				print("Bought Small Drill")
 
 func swap_item_back():
-	if item == 1:
-		item = 2
-	elif item == 2:
-		item = 1
+	var previous_item = item
+	match item:
+		1:
+			item = 3
+		2:
+			item = 1
+		3:
+			item = 2
+	update_shop_ui()
+
 func swap_item_forward():
-	if item == 1:
-		item = 2
-	elif item == 2:
-		item = 1
+	match item:
+		1:
+			item = 2
+		2:
+			item = 3
+		3:
+			item = 1
+	update_shop_ui()
 
 func buy():
 	Global.money -= price
-	if item == 1:
-		item1owned = true
-	if item == 2:
-		item2owned = true
+	update_shop_ui()

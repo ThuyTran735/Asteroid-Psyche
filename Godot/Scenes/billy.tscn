@@ -1,16 +1,19 @@
-[gd_scene load_steps=37 format=3 uid="uid://bk044ya3dinr1"]
+[gd_scene load_steps=48 format=3 uid="uid://bk044ya3dinr1"]
 
 [ext_resource type="Script" path="res://Scripts/billy.gd" id="1_kd88v"]
-[ext_resource type="Texture2D" uid="uid://d351tg5im533y" path="res://Assets/Billy/Billy Basic/billy_basic_idle.png" id="1_xs6ob"]
-[ext_resource type="Texture2D" uid="uid://c5ot7udwh5rbo" path="res://Assets/Billy/Billy Basic/billy_basic_walk.png" id="2_77upu"]
-[ext_resource type="Texture2D" uid="uid://c14qgrxqum2kr" path="res://Assets/Billy/Billy Basic Shovel/billy_basic_shovel_idle.png" id="3_26cgs"]
+[ext_resource type="Texture2D" uid="uid://d351tg5im533y" path="res://Assets/billy_basic_idle.png" id="1_xs6ob"]
+[ext_resource type="Texture2D" uid="uid://c5ot7udwh5rbo" path="res://Assets/billy_basic_walk.png" id="2_77upu"]
+[ext_resource type="Texture2D" uid="uid://c14qgrxqum2kr" path="res://Assets/billy_basic_shovel.png" id="3_26cgs"]
 [ext_resource type="Texture2D" uid="uid://dqpi4k5i4crgc" path="res://Assets/Billy/Billy Basic Pickaxe/billy_basic_pickaxe_idle.png" id="3_qauj1"]
-[ext_resource type="Texture2D" uid="uid://c3eee6672alk8" path="res://Assets/Billy/Billy Basic/billy_basic_mine.png" id="4_3h70o"]
+[ext_resource type="Texture2D" uid="uid://c3eee6672alk8" path="res://Assets/billy_basic_mine.png" id="4_3h70o"]
 [ext_resource type="Texture2D" uid="uid://bbsghg7rg506p" path="res://Assets/Billy/Billy Basic Shovel/billy_basic_shovel_mine_1st_frame.png" id="5_paa4n"]
+[ext_resource type="Texture2D" uid="uid://ddj5ansyen7jm" path="res://Assets/Billy/Billy Small Drill/billy_small_drill_idle.png" id="5_wvm0t"]
 [ext_resource type="Texture2D" uid="uid://bw42v8b225hn" path="res://Assets/Billy/Billy Basic Pickaxe/billy_basic_pickaxe_mine.png" id="6_37qmh"]
 [ext_resource type="Texture2D" uid="uid://ce23upne0k2gt" path="res://Assets/Billy/Billy Basic Shovel/billy_basic_shovel_mine.png" id="6_b2b5f"]
-[ext_resource type="Texture2D" uid="uid://b4lfuhxqrld27" path="res://Assets/Billy/Billy Basic Shovel/billy_basic_shovel_walk.png" id="6_hkeei"]
+[ext_resource type="Texture2D" uid="uid://b4lfuhxqrld27" path="res://Assets/billy_basic_shovel_walk.png" id="6_hkeei"]
+[ext_resource type="Texture2D" uid="uid://b54q8d25r1sa7" path="res://Assets/Billy/Billy Small Drill/billy_small_drill_mine.png" id="10_8vxsm"]
 [ext_resource type="Texture2D" uid="uid://dydq5u3troe6" path="res://Assets/Billy/Billy Basic Pickaxe/billy_basic_pickaxe_walk.png" id="10_yu5kk"]
+[ext_resource type="Texture2D" uid="uid://gtxcg01v2i0h" path="res://Assets/Billy/Billy Small Drill/billy_small_drill_walk.png" id="14_hdjiy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbrne"]
 atlas = ExtResource("1_xs6ob")
@@ -36,6 +39,14 @@ region = Rect2(0, 0, 10, 10)
 atlas = ExtResource("3_26cgs")
 region = Rect2(10, 0, 10, 10)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0dsa"]
+atlas = ExtResource("5_wvm0t")
+region = Rect2(0, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om7i3"]
+atlas = ExtResource("5_wvm0t")
+region = Rect2(20, 0, 20, 10)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4om7"]
 atlas = ExtResource("4_3h70o")
 region = Rect2(0, 0, 10, 10)
@@ -55,6 +66,14 @@ region = Rect2(20, 0, 20, 10)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1pntu"]
 atlas = ExtResource("6_b2b5f")
 region = Rect2(20, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04p43"]
+atlas = ExtResource("10_8vxsm")
+region = Rect2(0, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg2w3"]
+atlas = ExtResource("10_8vxsm")
+region = Rect2(20, 0, 20, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1f10s"]
 atlas = ExtResource("2_77upu")
@@ -104,6 +123,22 @@ region = Rect2(20, 0, 10, 10)
 atlas = ExtResource("6_hkeei")
 region = Rect2(30, 0, 10, 10)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7pcr"]
+atlas = ExtResource("14_hdjiy")
+region = Rect2(0, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuk87"]
+atlas = ExtResource("14_hdjiy")
+region = Rect2(20, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf1f6"]
+atlas = ExtResource("14_hdjiy")
+region = Rect2(40, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6b7t"]
+atlas = ExtResource("14_hdjiy")
+region = Rect2(60, 0, 20, 10)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_rw242"]
 animations = [{
 "frames": [{
@@ -141,6 +176,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_d0dsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om7i3")
+}],
+"loop": true,
+"name": &"idle_small_drill",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_w4om7")
 }, {
 "duration": 1.0,
@@ -170,6 +216,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"mine_basic_shovel",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04p43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg2w3")
+}],
+"loop": true,
+"name": &"mine_small_drill",
 "speed": 1.0
 }, {
 "frames": [{
@@ -222,6 +279,23 @@ animations = [{
 "loop": true,
 "name": &"walk_basic_shovel",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7pcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuk87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rf1f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6b7t")
+}],
+"loop": true,
+"name": &"walk_small_drill",
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wr6qg"]
@@ -234,7 +308,7 @@ script = ExtResource("1_kd88v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_rw242")
-animation = &"walk_basic_pickaxe"
+animation = &"walk_small_drill"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

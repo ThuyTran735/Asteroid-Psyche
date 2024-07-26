@@ -44,6 +44,8 @@ func _physics_process(delta):
 			animated_sprite_2d.play("idle_basic_shovel")
 		elif Global.item_main == 2:
 			animated_sprite_2d.play("idle_basic_pickaxe")
+		elif Global.item_main == 3:
+			animated_sprite_2d.play("idle_small_drill")
 		else:
 			animated_sprite_2d.play("idle")
 	else:
@@ -51,6 +53,8 @@ func _physics_process(delta):
 			animated_sprite_2d.play("walk_basic_shovel")
 		elif Global.item_main == 2:
 			animated_sprite_2d.play("walk_basic_pickaxe")
+		elif Global.item_main == 3:
+			animated_sprite_2d.play("walk_small_drill")
 		else:
 			animated_sprite_2d.play("walk")
 	
@@ -67,6 +71,8 @@ func _physics_process(delta):
 			animated_sprite_2d.play("mine_basic_shovel")
 		elif Global.item_main == 2:
 			animated_sprite_2d.play("mine_basic_pickaxe")
+		elif Global.item_main == 3:
+			animated_sprite_2d.play("mine_small_drill")
 		else:
 			animated_sprite_2d.play("mine")
 
