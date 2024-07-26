@@ -9,7 +9,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -43,11 +42,15 @@ func _physics_process(delta):
 	if direction == 0: 
 		if Global.item_main == 1:
 			animated_sprite_2d.play("idle_basic_shovel")
+		elif Global.item_main == 2:
+			animated_sprite_2d.play("idle_basic_pickaxe")
 		else:
 			animated_sprite_2d.play("idle")
 	else:
 		if Global.item_main == 1:
 			animated_sprite_2d.play("walk_basic_shovel")
+		elif Global.item_main == 2:
+			animated_sprite_2d.play("walk_basic_pickaxe")
 		else:
 			animated_sprite_2d.play("walk")
 	
@@ -60,7 +63,12 @@ func _physics_process(delta):
 	
 	# If left mouse button is pressed, play mining animation
 	if Input.is_action_pressed("mb_left"):
-		animated_sprite_2d.play("mine")
+		if Global.item_main == 1:
+			animated_sprite_2d.play("mine_basic_shovel")
+		elif Global.item_main == 2:
+			animated_sprite_2d.play("mine_basic_pickaxe")
+		else:
+			animated_sprite_2d.play("mine")
 
 	move_and_slide()
 	

@@ -1,24 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyd4m3ilc8ewv"]
+[gd_scene load_steps=7 format=3 uid="uid://cyd4m3ilc8ewv"]
 
 [ext_resource type="Script" path="res://Scripts/shopmenu.gd" id="1_gf40d"]
-[ext_resource type="Texture2D" uid="uid://d27wixwq8pnhq" path="res://Assets/Basic_Gun.png" id="2_x4eco"]
-[ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Basic_Pickaxe.png" id="2_yo4a6"]
-[ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Basic_Shovel.png" id="3_vsf11"]
-[ext_resource type="Texture2D" uid="uid://mo6xitljy3ei" path="res://Assets/pixil-frame-0 (17).png" id="4_1oft2"]
+[ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Billy/Billy Basic Shovel/Basic_Pickaxe.png" id="2_lgi4a"]
+[ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Shop/Tools/Basic_Shovel.png" id="3_nver4"]
+[ext_resource type="Texture2D" uid="uid://mo6xitljy3ei" path="res://Assets/Shop/white_arrow.png" id="4_4wrbr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bodoe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_x4eco")
-}],
-"loop": true,
-"name": &"Basic_Gun",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_yo4a6")
+"texture": ExtResource("2_lgi4a")
 }],
 "loop": true,
 "name": &"Basic_Pickaxe",
@@ -26,7 +17,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_vsf11")
+"texture": ExtResource("3_nver4")
 }],
 "loop": true,
 "name": &"Basic_Shovel",
@@ -37,7 +28,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_1oft2")
+"texture": ExtResource("4_4wrbr")
 }],
 "loop": true,
 "name": &"default",
@@ -90,21 +81,12 @@ flip_h = true
 [node name="PriceLabel" type="RichTextLabel" parent="."]
 offset_left = 63.0
 offset_top = 11.0
-offset_right = 163.0
-offset_bottom = 80.0
+offset_right = 213.0
+offset_bottom = 111.0
 text = "$10
 2 Damage
 1.5x Money"
 fit_content = true
-metadata/_edit_use_anchors_ = true
-
-[node name="ButtonBuyColor" type="ColorRect" parent="."]
-visible = false
-offset_left = 223.0
-offset_top = 73.0
-offset_right = 293.0
-offset_bottom = 142.0
-color = Color(1, 0.164706, 0.164706, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonBuy" type="Button" parent="."]

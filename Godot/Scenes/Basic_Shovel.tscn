@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6sqv0qr7kdnt"]
 
-[ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Basic_Shovel.png" id="1_l31mg"]
+[ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Shop/Tools/Basic_Shovel.png" id="1_l31mg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fygj6"]
 animations = [{

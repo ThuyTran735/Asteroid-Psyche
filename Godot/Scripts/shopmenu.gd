@@ -1,15 +1,13 @@
 extends StaticBody2D
 
-# Item 1 = Basic Shovel, Item 2 = Basic Pickaxe, Item 3 = Basic Gun
+# Item 1 = Basic Shovel, Item 2 = Basic Pickaxe
 var item = 1
 
 var item1price = 10
 var item2price = 50
-var item3price = 100
 
 var item1owned = false
 var item2owned = false
-var item3owned = false
 
 var price
 
@@ -19,12 +17,23 @@ func _ready():
 
 func _physics_process(_delta):
 	if self.visible == true:
+		# Basic Shovel
 		if item == 1:
 			$icon.play("Basic_Shovel")
+			$PriceLabel.text = "Simple Shovel:\n$10\n2 Damage\n1.5x Money"
+			if Global.money >= item1price:
+				$ButtonBuy.modulate = Color(0.058, 0.611, 0.098) # Green
+			else:
+				$ButtonBuy.modulate = Color(1, 0, 0) # Red
+			
+		# Basic Pickaxe
 		if item == 2:
 			$icon.play("Basic_Pickaxe")
-		if item == 3:
-			$icon.play("Basic_Gun")
+			$PriceLabel.text = "Simple Pickaxe:\n$50\n4 Damage\n2.25x Money"
+			if Global.money >= item2price:
+				$ButtonBuy.modulate = Color(0.058, 0.611, 0.098) # Green
+			else:
+				$ButtonBuy.modulate = Color(1, 0, 0) # Red
 
 
 func _on_button_left_pressed():
@@ -44,25 +53,16 @@ func _on_button_buy_pressed():
 		if Global.money >= price:
 			if item2owned == false:
 				buy()
-	elif item == 3: 
-		price = item3price
-		if Global.money >= price:
-			if item3owned == false:
-				buy()
 
 func swap_item_back():
 	if item == 1:
-		item = 3
+		item = 2
 	elif item == 2:
 		item = 1
-	elif item == 3:
-		item = 2
 func swap_item_forward():
 	if item == 1:
 		item = 2
 	elif item == 2:
-		item = 3
-	elif item == 3:
 		item = 1
 
 func buy():
@@ -71,5 +71,3 @@ func buy():
 		item1owned = true
 	if item == 2:
 		item2owned = true
-	if item == 3:
-		item3owned = true
