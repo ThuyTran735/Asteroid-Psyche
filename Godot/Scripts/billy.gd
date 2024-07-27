@@ -3,22 +3,24 @@ extends CharacterBody2D
 
 const SPEED = 50
 const JUMP_VELOCITY = -200
-const GRAVITY = 400
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += GRAVITY * delta
+		velocity.y += gravity * delta
 	
 	# Get the global mouse position
 	var mouse_pos = get_global_mouse_position()
 	# Get the global position of the player
 	var player_pos = global_position
 
-	# Handles jump with "w" and up arrow"
-	if (Input.is_action_just_pressed("jump") and is_on_floor()) or (Input.is_action_just_pressed("ui_up") and is_on_floor()):
+	# Handle jump.
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Gets the input direction: -1 (Left), 0 (Nothing), 1 (Right)
@@ -38,9 +40,23 @@ func _physics_process(delta):
 	
 	# Play animations
 	if direction == 0: 
-		animated_sprite_2d.play("idle")
+		if Global.item_main == 1:
+			animated_sprite_2d.play("idle_basic_shovel")
+		elif Global.item_main == 2:
+			animated_sprite_2d.play("idle_basic_pickaxe")
+		elif Global.item_main == 3:
+			animated_sprite_2d.play("idle_small_drill")
+		else:
+			animated_sprite_2d.play("idle")
 	else:
-		animated_sprite_2d.play("walk")
+		if Global.item_main == 1:
+			animated_sprite_2d.play("walk_basic_shovel")
+		elif Global.item_main == 2:
+			animated_sprite_2d.play("walk_basic_pickaxe")
+		elif Global.item_main == 3:
+			animated_sprite_2d.play("walk_small_drill")
+		else:
+			animated_sprite_2d.play("walk")
 	
 	# Movement
 	if direction:
@@ -51,6 +67,18 @@ func _physics_process(delta):
 	
 	# If left mouse button is pressed, play mining animation
 	if Input.is_action_pressed("mb_left"):
-		animated_sprite_2d.play("mine")
+		if Global.item_main == 1:
+			animated_sprite_2d.play("mine_basic_shovel")
+		elif Global.item_main == 2:
+			animated_sprite_2d.play("mine_basic_pickaxe")
+		elif Global.item_main == 3:
+			animated_sprite_2d.play("mine_small_drill")
+		else:
+			animated_sprite_2d.play("mine")
 
 	move_and_slide()
+	
+func player_sell_method(): 
+	pass
+func player_shop_method(): 
+	pass
