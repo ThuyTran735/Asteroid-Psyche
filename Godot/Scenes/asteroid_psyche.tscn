@@ -1,9 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnoferxl2wl4t"]
+[gd_scene load_steps=11 format=3 uid="uid://bnoferxl2wl4t"]
 
 [ext_resource type="PackedScene" uid="uid://bk044ya3dinr1" path="res://Scenes/billy.tscn" id="1_75q7w"]
 [ext_resource type="Script" path="res://Scenes/asteroid_psyche.gd" id="1_w7clo"]
 [ext_resource type="Texture2D" uid="uid://dmdvhnv0ho45e" path="res://Assets/spritesheet (2).png" id="2_jw6uf"]
 [ext_resource type="Script" path="res://Scripts/TileMap.gd" id="3_lwx1y"]
+
+[sub_resource type="Environment" id="Environment_5o1db"]
+ambient_light_color = Color(0.847059, 0, 0, 1)
+ambient_light_energy = 4.3
+
+[sub_resource type="Gradient" id="Gradient_u0xmt"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_smui0"]
+gradient = SubResource("Gradient_u0xmt")
+fill = 1
+fill_from = Vector2(0.488532, 0.5)
+fill_to = Vector2(0.598624, 0.53211)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_k0t2b"]
+polygon = PackedVector2Array(-2, 1, 2, 1, 2, 0, -2, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwppk"]
 texture = ExtResource("2_jw6uf")
@@ -33,14 +49,27 @@ sources/0 = SubResource("TileSetAtlasSource_kwppk")
 [node name="Asteroid Psyche" type="Node2D"]
 script = ExtResource("1_w7clo")
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+
 [node name="Billy" parent="." instance=ExtResource("1_75q7w")]
-position = Vector2(0, 0)
+position = Vector2(0, -3)
 
 [node name="Camera2D" type="Camera2D" parent="Billy"]
 position = Vector2(0, -3)
 zoom = Vector2(6, 6)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Billy/Camera2D"]
+environment = SubResource("Environment_5o1db")
+
+[node name="PointLight2D" type="PointLight2D" parent="Billy"]
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_smui0")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Billy"]
+occluder = SubResource("OccluderPolygon2D_k0t2b")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jcrur")
