@@ -81,10 +81,11 @@ scale = Vector2(0.5, 0.5)
 text = "Money: $999999"
 script = ExtResource("6_y0pvf")
 
-[node name="Control" parent="Billy" instance=ExtResource("7_6j2rb")]
-script = null
-
 [node name="Inv_Ui" parent="Billy" instance=ExtResource("7_6j2rb")]
+offset_left = -78.0
+offset_top = -46.0
+offset_right = 82.0
+offset_bottom = 36.0
 
 [node name="Shop" parent="." instance=ExtResource("4_vvju7")]
 position = Vector2(59, 0)

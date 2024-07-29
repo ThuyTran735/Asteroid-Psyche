@@ -1,6 +1,5 @@
-[gd_scene load_steps=23 format=3 uid="uid://bk044ya3dinr1"]
+[gd_scene load_steps=22 format=3 uid="uid://bk044ya3dinr1"]
 
-[ext_resource type="Script" path="res://Scripts/billy.gd" id="1_kd88v"]
 [ext_resource type="Texture2D" uid="uid://d351tg5im533y" path="res://Assets/billy_basic_idle.png" id="1_xs6ob"]
 [ext_resource type="Texture2D" uid="uid://c5ot7udwh5rbo" path="res://Assets/billy_basic_walk.png" id="2_77upu"]
 [ext_resource type="Texture2D" uid="uid://c14qgrxqum2kr" path="res://Assets/billy_basic_shovel.png" id="3_26cgs"]
@@ -138,7 +137,6 @@ size = Vector2(4, 7)
 
 [node name="Billy" type="CharacterBody2D"]
 position = Vector2(0, -1)
-script = ExtResource("1_kd88v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
