@@ -14,6 +14,11 @@ var inv: Inv
 
 func _ready():
 	# Initialize the inventory variable
+	if inv_resource == null:
+		print("inv_resource is not set!")
+	else:
+		print("inv_resource is set:", inv_resource)
+	
 	inv = inv_resource as Inv
 	if inv == null:
 		print("Inventory resource not found or not of type Inv!")
