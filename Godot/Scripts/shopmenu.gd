@@ -13,6 +13,12 @@ var item3owned = false
 
 var price
 
+# inventiry stuff
+@export var item_a: InvItem
+var player = null
+
+
+
 func _ready():
 	$icon.play("Basic_Shovel")
 	item = 1
@@ -37,17 +43,21 @@ func _on_button_buy_pressed():
 		price = item1price
 		if Global.money >= price:
 			if item1owned == false:
+				#probably broken (doesnt know what item)
+				player.collect(item_a)
 				buy()
 				print("Bought Basic Shovel")
 	elif item == 2: 
 		price = item2price
 		if Global.money >= price:
 			if item2owned == false:
+				player.collect(item_a)
 				buy()
 	elif item == 3: 
 		price = item3price
 		if Global.money >= price:
 			if item3owned == false:
+				player.collect(item_a)
 				buy()
 
 func swap_item_back():

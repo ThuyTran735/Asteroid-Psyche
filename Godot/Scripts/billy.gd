@@ -72,7 +72,7 @@ func player_shop_method():
 	pass
 
 
-
+ 
 #inventory stuff
 func collect(item):
 	inv.insert(item)
