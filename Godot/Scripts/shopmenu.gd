@@ -13,15 +13,20 @@ var item3owned = false
 
 var price
 
-# inventiry stuff
+# Inventory stuff
 @export var item_a: InvItem
 var player = null
-
-
 
 func _ready():
 	$icon.play("Basic_Shovel")
 	item = 1
+
+	# Initialize the player variable (assuming Billy is the player node)
+	player = get_parent().get_node("../Billy") # Adjust the path as necessary
+	if player == null:
+		print("Player node not found!")
+	else:
+		print("Player node found:", player)
 
 func _physics_process(_delta):
 	if self.visible == true:
@@ -32,33 +37,42 @@ func _physics_process(_delta):
 		if item == 3:
 			$icon.play("Basic_Gun")
 
-
 func _on_button_left_pressed():
 	swap_item_back()
+
 func _on_button_right_pressed():
 	swap_item_forward()
+
 func _on_button_buy_pressed():
 	print("Buying...")
 	if item == 1:
 		price = item1price
 		if Global.money >= price:
 			if item1owned == false:
-				#probably broken (doesnt know what item)
-				player.collect(item_a)
-				buy()
-				print("Bought Basic Shovel")
-	elif item == 2: 
+				if player != null:
+					player.collect(item_a)
+					buy()
+					print("Bought Basic Shovel")
+				else:
+					print("Player is null!")
+	elif item == 2:
 		price = item2price
 		if Global.money >= price:
 			if item2owned == false:
-				player.collect(item_a)
-				buy()
-	elif item == 3: 
+				if player != null:
+					player.collect(item_a)
+					buy()
+				else:
+					print("Player is null!")
+	elif item == 3:
 		price = item3price
 		if Global.money >= price:
 			if item3owned == false:
-				player.collect(item_a)
-				buy()
+				if player != null:
+					player.collect(item_a)
+					buy()
+				else:
+					print("Player is null!")
 
 func swap_item_back():
 	if item == 1:
@@ -67,6 +81,7 @@ func swap_item_back():
 		item = 1
 	elif item == 3:
 		item = 2
+
 func swap_item_forward():
 	if item == 1:
 		item = 2

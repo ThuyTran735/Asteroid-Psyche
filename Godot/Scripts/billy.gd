@@ -1,16 +1,24 @@
 extends CharacterBody2D
 
-
 const SPEED = 50
 const JUMP_VELOCITY = -200
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-#inventory stuff
-@export var inv: Inv 
+# Inventory stuff
+@export var inv_resource: Resource # Assign your Inv resource in the editor
+
+var inv: Inv
+
+func _ready():
+	# Initialize the inventory variable
+	inv = inv_resource as Inv
+	if inv == null:
+		print("Inventory resource not found or not of type Inv!")
+	else:
+		print("Inventory resource initialized:", inv)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -29,7 +37,7 @@ func _physics_process(delta):
 	# Gets the input direction: -1 (Left), 0 (Nothing), 1 (Right)
 	var direction = Input.get_axis("move_left", "move_right")
 	
-		 # Determine if the mouse is to the left or right of the player
+	# Determine if the mouse is to the left or right of the player
 	if mouse_pos.x < player_pos.x:
 		animated_sprite_2d.flip_h = true
 	else:
@@ -59,7 +67,6 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	
 	# If left mouse button is pressed, play mining animation
 	if Input.is_action_pressed("mb_left"):
 		animated_sprite_2d.play("mine")
@@ -68,11 +75,13 @@ func _physics_process(delta):
 	
 func player_sell_method(): 
 	pass
+
 func player_shop_method(): 
 	pass
 
-
- 
-#inventory stuff
+# Inventory stuff
 func collect(item):
-	inv.insert(item)
+	if inv != null:
+		inv.insert(item)
+	else:
+		print("Inventory is null!")
