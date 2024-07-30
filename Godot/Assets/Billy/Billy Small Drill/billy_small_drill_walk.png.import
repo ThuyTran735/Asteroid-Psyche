@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ot7udwh5rbo"
-path="res://.godot/imported/billy_basic_walk.png-5fec74a5e3c1bb9bff6bd4d31d9ce987.ctex"
+uid="uid://gtxcg01v2i0h"
+path="res://.godot/imported/billy_small_drill_walk.png-32e199787a57941ea937988df3b12698.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/billy_basic_walk.png"
-dest_files=["res://.godot/imported/billy_basic_walk.png-5fec74a5e3c1bb9bff6bd4d31d9ce987.ctex"]
+source_file="res://Assets/Billy/Billy Small Drill/billy_small_drill_walk.png"
+dest_files=["res://.godot/imported/billy_small_drill_walk.png-32e199787a57941ea937988df3b12698.ctex"]
 
 [params]
 

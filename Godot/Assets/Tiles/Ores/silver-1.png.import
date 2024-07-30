@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d351tg5im533y"
-path="res://.godot/imported/billy_basic_idle.png-45f65e69f99b66d1f74709dd205584c9.ctex"
+uid="uid://bh03wo6fgqys"
+path="res://.godot/imported/silver-1.png-0e61708325eb8d139115959e7a604fbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/billy_basic_idle.png"
-dest_files=["res://.godot/imported/billy_basic_idle.png-45f65e69f99b66d1f74709dd205584c9.ctex"]
+source_file="res://Assets/Tiles/Ores/silver-1.png"
+dest_files=["res://.godot/imported/silver-1.png-0e61708325eb8d139115959e7a604fbf.ctex"]
 
 [params]
 
