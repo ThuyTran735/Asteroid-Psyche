@@ -42,37 +42,54 @@ func _on_button_left_pressed():
 
 func _on_button_right_pressed():
 	swap_item_forward()
-
+func up():
+	player = get_node(".") # Adjust the path as necessary
+	if player:
+	# Create a Callable for the method you want to connect
+		var callable = Callable(self, "_on_inventory_updated")
+		if not player.is_connected("inventory_updated", callable):
+			player.connect("inventory_updated", callable)
+			print("Connected to inventory_updated signal")
+	else:
+		print("Player node not found or incorrect path")
 func _on_button_buy_pressed():
 	print("Buying...")
 	if item == 1:
 		price = item1price
-		if Global.money >= price:
-			if item1owned == false:
-				if player != null:
-					player.collect(item_a)
+		if Global.money >= price and not item1owned:
+			if player != null:
+				if player.add_to_displayed_inventory("res://Inventory/Items/Basic_Shovel.tres"):
 					buy()
 					print("Bought Basic Shovel")
+					player.print_inventory_contents()
+					up()
+
 				else:
-					print("Player is null!")
+					print("No available slot for the Basic Shovel!")
+			else:
+				print("Player is null!")
 	elif item == 2:
 		price = item2price
-		if Global.money >= price:
-			if item2owned == false:
-				if player != null:
-					player.collect(item_a)
+		if Global.money >= price and not item2owned:
+			if player != null:
+				if player.add_to_displayed_inventory("res://Inventory/Items/Basic_Pickaxe.tres"):
 					buy()
+					print("Bought Basic Pickaxe")
 				else:
-					print("Player is null!")
+					print("No available slot for the Basic Pickaxe!")
+			else:
+				print("Player is null!")
 	elif item == 3:
 		price = item3price
-		if Global.money >= price:
-			if item3owned == false:
-				if player != null:
-					player.collect(item_a)
+		if Global.money >= price and not item3owned:
+			if player != null:
+				if player.add_to_displayed_inventory("res://Inventory/Items/Basic_Gun.tres"):
 					buy()
+					print("Bought Basic Gun")
 				else:
-					print("Player is null!")
+					print("No available slot for the Basic Gun!")
+			else:
+				print("Player is null!")
 
 func swap_item_back():
 	if item == 1:

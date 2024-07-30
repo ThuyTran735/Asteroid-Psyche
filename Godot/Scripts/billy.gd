@@ -11,20 +11,48 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var inv_resource: Resource # Assign your Inv resource in the editor
 
 var inv: Inv
+var inventory = []
+signal inventory_updated
 
 func _ready():
-	# Initialize the inventory variable
-	if inv_resource == null:
-		print("inv_resource is not set!")
-	else:
-		print("inv_resource is set:", inv_resource)
-	
-	inv = inv_resource as Inv
-	if inv == null:
-		print("Inventory resource not found or not of type Inv!")
-	else:
-		print("Inventory resource initialized:", inv)
+	var player_inventory_resource = load("res://Inventory/playerinv.tres") as Resource
+	if player_inventory_resource:
+		inventory = player_inventory_resource.get("slots")
 
+# Function to add a specific item to the displayed inventory
+func add_to_displayed_inventory(item_path: String):
+	var new_item = ResourceLoader.load(item_path) as InvItem
+	if new_item == null:
+		print("Item could not be loaded:", item_path)
+		return false
+	
+	for slot in inventory:
+		if slot.item == null:
+			slot.item = new_item
+			slot.amount = 1
+			print("Added item to displayed inventory:", new_item)
+			emit_signal("inventory_updated")
+			print_inventory_contents() # Print the inventory after adding an item
+			return true
+		elif slot.item == new_item:
+			slot.amount += 1
+			print("Increased item amount in displayed inventory:", new_item)
+			emit_signal("inventory_updated")
+			print_inventory_contents() # Print the inventory after increasing the amount
+			return true
+	
+	print("No available slot for the item:", new_item)
+	print_inventory_contents() # Print the inventory if no slot was available
+	return false
+
+# Function to print the inventory contents
+func print_inventory_contents():
+	print("Current inventory contents:")
+	for slot in inventory:
+		if slot.item != null:
+			print("Item:", slot.item.resource_path, "Amount:", slot.amount)
+		else:
+			print("Empty slot")
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():

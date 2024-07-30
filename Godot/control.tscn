@@ -10,11 +10,27 @@ script/source = "extends Control
 @onready var slots: Array = $InventoryControl/VBoxContainer/GridContainer.get_children()
 
 var is_open = false
+var player = null
 
 func _ready():
+	
+	print(\"hi\")
 	inv.update.connect(update_slots)
 	update_slots()
 	close()
+	player = get_node(\".\") # Adjust the path as necessary
+	if player:
+	# Create a Callable for the method you want to connect
+		var callable = Callable(self, \"_on_inventory_updated\")
+		if not player.is_connected(\"inventory_updated\", callable):
+			player.connect(\"inventory_updated\", callable)
+			print(\"Connected to inventory_updated signal\")
+	else:
+		print(\"Player node not found or incorrect path\")
+
+
+
+
 
 func update_slots():
 	for i in range(min(inv.slots.size(),slots.size())):
@@ -34,6 +50,22 @@ func open():
 func close():
 	visible = false
 	is_open = false
+func _on_inventory_updated():
+	refresh_inventory_ui()
+
+func refresh_inventory_ui():
+	# Logic to refresh the inventory UI
+	# Example: Loop through UI elements and update them based on inventory data
+	var slots = player.inventory
+	for i in range(len(slots)):
+		var slot = slots[i]
+		var ui_slot = $InventoryUIContainer.get_child(i) # Replace with actual UI container
+		if slot.item:
+			ui_slot.texture = slot.item.icon # Assuming you have an 'icon' property
+			ui_slot.amount_label.text = str(slot.amount) # Assuming you have an amount label
+		else:
+			ui_slot.texture = null
+			ui_slot.amount_label.text = \"\"
 "
 
 [node name="Inv_Ui" type="Control"]
