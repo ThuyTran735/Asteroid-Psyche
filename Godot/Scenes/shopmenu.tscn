@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://y660w85wcsid" path="res://Assets/Shops/Tools/Laser_Drill.png" id="5_3ekva"]
 [ext_resource type="Texture2D" uid="uid://3dk2sgw8br4y" path="res://Assets/Shops/Tools/Medium_Drill.png" id="6_wva01"]
 [ext_resource type="Texture2D" uid="uid://bhkys836o1wun" path="res://Assets/Shops/Tools/Small_Drill.png" id="7_85jdk"]
-[ext_resource type="Texture2D" uid="uid://mo6xitljy3ei" path="res://Assets/Shops/white_arrow.png" id="8_3ihoh"]
+[ext_resource type="Texture2D" uid="uid://mo6xitljy3ei" path="res://Assets/Shops/pixil-frame-0 (17).png" id="8_3ihoh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7o1td"]
 atlas = ExtResource("2_l726j")

@@ -7,12 +7,14 @@ var item2price = 50
 var item3price = 125
 var item4price = 300
 var item5price = 800
+var item6price = 2500
 
 var item1owned = false
 var item2owned = false
 var item3owned = false
 var item4owned = false
 var item5owned = false
+var item6owned = false
 
 var price
 
@@ -50,6 +52,11 @@ func update_shop_ui():
 			$PriceLabel.text = "Large Drill:\n$800\n40 Damage\n10.5x Money"
 			$ButtonBuy.modulate = Color(0.058, 0.611, 0.098) if Global.money >= item5price and not item5owned else Color(1, 0, 0)
 			$ButtonBuy.disabled = Global.money < item5price or item5owned
+		6:
+			$icon.play("Laser_Drill")
+			$PriceLabel.text = "Laser Drill:\n$2500\n100 Damage\n25x Money"
+			$ButtonBuy.modulate = Color(0.058, 0.611, 0.098) if Global.money >= item6price and not item6owned else Color(1, 0, 0)
+			$ButtonBuy.disabled = Global.money < item6price or item6owned
 
 func _on_button_left_pressed():
 	swap_item_back()
@@ -90,12 +97,18 @@ func _on_button_buy_pressed():
 				buy()
 				item5owned = true
 				print("Bought Large Drill")
+		6:
+			price = item6price
+			if Global.money >= price and not item6owned:
+				buy()
+				item6owned = true
+				print("Bought Laser Drill")
 
 func swap_item_back():
 	var previous_item = item
 	match item:
 		1:
-			item = 5
+			item = 6
 		2:
 			item = 1
 		3:
@@ -104,6 +117,8 @@ func swap_item_back():
 			item = 3
 		5:
 			item = 4
+		6:
+			item = 5
 	update_shop_ui()
 
 func swap_item_forward():
@@ -117,6 +132,8 @@ func swap_item_forward():
 		4:
 			item = 5
 		5:
+			item = 6
+		6:
 			item = 1
 	update_shop_ui()
 

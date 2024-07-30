@@ -25,6 +25,10 @@ func _process(_delta):
 		Global.damage = 40
 		Global.money_multiplier = 10.5
 		Global.item_main = 5
+	if $shopmenu.item6owned == true:
+		Global.damage = 100
+		Global.money_multiplier = 25
+		Global.item_main = 6
 	
 func _on_area_2d_body_entered(body):
 	if body.has_method("player_shop_method"):

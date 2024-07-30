@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bk044ya3dinr1"]
+[gd_scene load_steps=80 format=3 uid="uid://bk044ya3dinr1"]
 
 [ext_resource type="Script" path="res://Scripts/billy.gd" id="1_kd88v"]
 [ext_resource type="Texture2D" uid="uid://d351tg5im533y" path="res://Assets/Billy/Billy Basic/billy_basic_idle.png" id="2_1mlnx"]
@@ -17,10 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://1lgwbl3qtknh" path="res://Assets/Billy/Billy Medium Drill/billy_medium_drill_mine.png" id="11_o6tx6"]
 [ext_resource type="Texture2D" uid="uid://da2h5dfp0in7w" path="res://Assets/Billy/Billy Large Drill/billy_large_drill_mine.png" id="12_gwtq7"]
 [ext_resource type="Texture2D" uid="uid://gtxcg01v2i0h" path="res://Assets/Billy/Billy Small Drill/billy_small_drill_walk.png" id="14_hdjiy"]
+[ext_resource type="Texture2D" uid="uid://dgk302ftf8bs2" path="res://Assets/Billy/Billy Laser Drill/billy_laser_drill_mine.png" id="14_lthk7"]
 [ext_resource type="Texture2D" uid="uid://c5ot7udwh5rbo" path="res://Assets/Billy/Billy Basic/billy_basic_walk.png" id="15_djlvj"]
 [ext_resource type="Texture2D" uid="uid://c14a1c4my3myn" path="res://Assets/Billy/Billy Medium Drill/billy_medium_drill_walk.png" id="16_o1dyh"]
 [ext_resource type="Texture2D" uid="uid://b4lfuhxqrld27" path="res://Assets/Billy/Billy Basic Shovel/billy_basic_shovel_walk.png" id="17_8pwjr"]
 [ext_resource type="Texture2D" uid="uid://box6sq62skrcl" path="res://Assets/Billy/Billy Large Drill/billy_large_drill_walk.png" id="18_yv8gp"]
+[ext_resource type="Texture2D" uid="uid://b1iw41tcclom1" path="res://Assets/Billy/Billy Laser Drill/billy_laser_drill_.png" id="21_hvbjb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbrne"]
 atlas = ExtResource("2_1mlnx")
@@ -186,6 +188,22 @@ region = Rect2(48, 0, 24, 10)
 atlas = ExtResource("18_yv8gp")
 region = Rect2(72, 0, 24, 10)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lius7"]
+atlas = ExtResource("21_hvbjb")
+region = Rect2(0, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhvtb"]
+atlas = ExtResource("21_hvbjb")
+region = Rect2(20, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alyjr"]
+atlas = ExtResource("21_hvbjb")
+region = Rect2(40, 0, 20, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fcbo"]
+atlas = ExtResource("21_hvbjb")
+region = Rect2(60, 0, 20, 10)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_eu1m7"]
 atlas = ExtResource("16_o1dyh")
 region = Rect2(0, 0, 20, 10)
@@ -341,10 +359,13 @@ animations = [{
 "name": &"mine_large_drill",
 "speed": 1.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_lthk7")
+}],
 "loop": true,
 "name": &"mine_laser_drill",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -436,10 +457,22 @@ animations = [{
 "name": &"walk_large_drill",
 "speed": 7.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lius7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhvtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alyjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fcbo")
+}],
 "loop": true,
 "name": &"walk_laser_drill",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -489,7 +522,7 @@ script = ExtResource("1_kd88v")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_rw242")
-animation = &"idle_laser_drill"
+animation = &"walk_laser_drill"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -508,6 +541,8 @@ position = Vector2(7, -3.5)
 points = PackedVector2Array(0, 0, 17, 0)
 width = 3.0
 default_color = Color(1, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="DamageAreaLaserDrill" type="Area2D" parent="Laser"]
 

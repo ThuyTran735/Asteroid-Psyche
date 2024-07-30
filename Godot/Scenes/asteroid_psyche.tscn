@@ -265,6 +265,7 @@ script = ExtResource("1_nudaw")
 [node name="Metal" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bee6v")
 format = 2
+layer_0/name = "Metal"
 layer_0/tile_data = PackedInt32Array(65535, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 65534, 0, 0, 65532, 0, 0, 65533, 0, 0, 65531, 0, 0, 65530, 0, 0, 65529, 0, 0, 65528, 0, 0)
 
 [node name="FirstLayer" type="TileMap" parent="."]
