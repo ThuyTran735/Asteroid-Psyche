@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://htwiyyk6ui5q"]
+
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_jccst"]
+[ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Basic_Pickaxe.png" id="2_5clm3"]
+
+[resource]
+script = ExtResource("1_jccst")
+name = "Basic_Pickaxe"
+texture = ExtResource("2_5clm3")

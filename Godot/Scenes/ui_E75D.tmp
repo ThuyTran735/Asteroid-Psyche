@@ -1,0 +1,277 @@
+[gd_scene load_steps=6 format=3 uid="uid://etr1i3v7aqdh"]
+
+[ext_resource type="PackedScene" uid="uid://bdt1tf84ddf0f" path="res://Inventory/inv_ui_slot.tscn" id="1_2gs2k"]
+[ext_resource type="Script" path="res://Inventory/inv_ui_slot.gd" id="2_tjjop"]
+[ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Shops/Tools/Basic_Shovel.png" id="3_qn7sk"]
+
+[sub_resource type="GDScript" id="GDScript_ck88q"]
+script/source = "extends Control
+
+
+@onready var slots: Array = $InventoryControl/VBoxContainer/GridContainer.get_children()
+
+var is_open = false
+
+func _ready():
+	inv.update.connect(update_slots)
+	update_slots()
+	close()
+
+func update_slots():
+	for i in range(min(inv.slots.size(),slots.size())):
+		slots[i].update(inv.slots[i])
+
+func _process(delta):
+	if Input.is_action_just_pressed(\"ui_inventory\"):
+		if is_open:
+			close()
+		else:
+			open()
+
+func open():
+	self.visible = true
+	is_open = true
+
+func close():
+	visible = false
+	is_open = false
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cafwm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qn7sk")
+}],
+"loop": true,
+"name": &"shovel",
+"speed": 5.0
+}]
+
+[node name="Inv_Ui" type="Control"]
+layout_mode = 3
+anchor_left = 0.007
+anchor_top = 0.049
+anchor_right = 0.106
+anchor_bottom = 0.187
+offset_left = -78.0
+offset_top = -46.0
+offset_right = 82.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_ck88q")
+
+[node name="Air Left" type="Timer" parent="."]
+autostart = true
+
+[node name="Air Left Display" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0403955, 0.215556, 0.441219, 1)
+
+[node name="InventoryControl" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -29.0
+offset_right = 78.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="InventoryControl/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "
+Inventory"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="InventoryControl/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 6
+
+[node name="inv_UI_slot" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot2" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot2"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot3" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot3"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot4" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot4"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot5" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot5"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot6" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot6"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot7" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot7"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot8" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot8"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot9" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot9"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot10" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot10"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot11" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot11"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot12" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot12"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot13" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot13"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot14" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot14"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot15" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot15"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot16" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot16"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot17" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot17"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[node name="inv_UI_slot18" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
+layout_mode = 2
+script = ExtResource("2_tjjop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot18"]
+position = Vector2(7, 8)
+sprite_frames = SubResource("SpriteFrames_cafwm")
+animation = &"shovel"
+
+[connection signal="timeout" from="Air Left" to="." method="_on_air_left_timeout"]
