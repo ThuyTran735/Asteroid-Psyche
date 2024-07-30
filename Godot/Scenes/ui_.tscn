@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bdt1tf84ddf0f" path="res://Inventory/inv_ui_slot.tscn" id="1_2gs2k"]
 [ext_resource type="Script" path="res://Inventory/inv_ui_slot.gd" id="2_tjjop"]
 [ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Shops/Tools/Basic_Shovel.png" id="3_qn7sk"]
-[ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Billy/Billy Basic Shovel/Basic_Pickaxe.png" id="4_hk2od"]
+[ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Shops/Tools/Basic_Pickaxe.png" id="4_hk2od"]
 [ext_resource type="Texture2D" uid="uid://t0wgjspw17my" path="res://Assets/Shops/Tools/Large_Drill.png" id="5_s7gb5"]
 [ext_resource type="Texture2D" uid="uid://y660w85wcsid" path="res://Assets/Shops/Tools/Laser_Drill.png" id="6_regaj"]
 [ext_resource type="Texture2D" uid="uid://3dk2sgw8br4y" path="res://Assets/Shops/Tools/Medium_Drill.png" id="7_m5tl7"]
@@ -186,6 +186,7 @@ layout_mode = 2
 script = ExtResource("2_tjjop")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot2"]
+position = Vector2(6.936, 7.248)
 sprite_frames = SubResource("SpriteFrames_u8rm4")
 
 [node name="inv_UI_slot3" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
@@ -193,6 +194,7 @@ layout_mode = 2
 script = ExtResource("2_tjjop")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot3"]
+position = Vector2(5.936, 8.248)
 sprite_frames = SubResource("SpriteFrames_lxi6e")
 
 [node name="inv_UI_slot4" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
@@ -200,6 +202,7 @@ layout_mode = 2
 script = ExtResource("2_tjjop")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot4"]
+position = Vector2(6.936, 7.248)
 sprite_frames = SubResource("SpriteFrames_qvwpj")
 
 [node name="inv_UI_slot5" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
@@ -207,6 +210,7 @@ layout_mode = 2
 script = ExtResource("2_tjjop")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot5"]
+position = Vector2(6.936, 8.248)
 sprite_frames = SubResource("SpriteFrames_pfqxj")
 
 [node name="inv_UI_slot6" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
@@ -214,6 +218,7 @@ layout_mode = 2
 script = ExtResource("2_tjjop")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InventoryControl/VBoxContainer/GridContainer/inv_UI_slot6"]
+position = Vector2(6.936, 8.248)
 sprite_frames = SubResource("SpriteFrames_a5iwo")
 
 [node name="inv_UI_slot7" parent="InventoryControl/VBoxContainer/GridContainer" instance=ExtResource("1_2gs2k")]
