@@ -3,24 +3,36 @@ extends CharacterBody2D
 const SPEED = 75
 const JUMP_VELOCITY = -200
 const max_range = 5000
+const LASER_DURATION = 0.5  # Set the laser duration in seconds
 
 var based_width = 3
 var widthy = based_width
-var shoot = false
 var laser_offset = 5
+var laser_start_position: Vector2
+var laser_end_position: Vector2
 @onready var LaserDrillMarker = $LaserDrillMarker
 @onready var animated_sprite_2d = $AnimatedSprite2D
+
+@export var laser_timer: Timer
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	# Initialize the timer variable if not set in the editor
+	if laser_timer == null:
+		laser_timer = $LaserTimer
+	laser_timer.timeout.connect(_on_laser_timer_timeout)
+	# Set the timer's wait time to 1.5 seconds
+	laser_timer.wait_time = LASER_DURATION
+	laser_timer.one_shot = true
+	# Ensure the laser starts as invisible
+	$Laser.visible = false
+	
 	$Control.z_index = 1
 	$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _physics_process(delta):
-	# Default to hidden laser
-	$Laser.visible = false
 	if Global.item_main == 6:
 		$Laser.width = widthy
 
@@ -30,34 +42,42 @@ func _physics_process(delta):
 		else:
 			laser_offset = 7
 
-		# Adjust laser position based on offset
-		var laser_base_position = global_position + Vector2(laser_offset, -3.5)
-		$Laser.global_position = laser_base_position
+		if $Laser.visible:
+			# Laser is visible, do not update its position
+			# Keep the laser in place based on its stored start and end positions
+			$Laser.set_point_position(0, $Laser.to_local(laser_start_position))
+			$Laser.set_point_position(1, $Laser.to_local(laser_end_position))
+		else:
+			# Calculate and update the laser's position when it is not visible
+			var laser_base_position = global_position + Vector2(laser_offset, -3.5)
+			$Laser.global_position = laser_base_position
 
-		# Get the mouse position
-		var mouse_position = get_global_mouse_position()
+			# Get the mouse position
+			var mouse_position = get_global_mouse_position()
 
-		# Calculate the laser direction and distance
-		var laser_direction = (mouse_position - laser_base_position).normalized()
-		var laser_distance = min((mouse_position - laser_base_position).length(), max_range)
+			# Calculate the laser direction and distance
+			var laser_direction = (mouse_position - laser_base_position).normalized()
+			var laser_distance = min((mouse_position - laser_base_position).length(), max_range)
 
-		# Set the laser end point
-		var laser_end_position = laser_base_position + laser_direction * laser_distance
+			# Set the laser end point
+			laser_end_position = laser_base_position + laser_direction * laser_distance
 
-		# Update laser points
-		$Laser.set_point_position(0, $Laser.to_local(laser_base_position))
-		$Laser.set_point_position(1, $Laser.to_local(laser_end_position))
+			# Update laser points
+			$Laser.set_point_position(0, $Laser.to_local(laser_base_position))
+			$Laser.set_point_position(1, $Laser.to_local(laser_end_position))
 
-		# Debug print statements
 		if Input.is_action_just_pressed("mb_left"):
-			shoot = true
-		else:
-			shoot = false
+			# Calculate and store laser positions
+			laser_start_position = global_position + Vector2(laser_offset, -3.5)
+			var mouse_position = get_global_mouse_position()
+			var laser_direction = (mouse_position - laser_start_position).normalized()
+			var laser_distance = min((mouse_position - laser_start_position).length(), max_range)
+			laser_end_position = laser_start_position + laser_direction * laser_distance
 
-		if shoot:
+			# Set the laser visible when the button is pressed
 			$Laser.visible = true
-		else:
-			$Laser.visible = false
+			# Start the timer
+			laser_timer.start()
 
 	# Handle jumping and movement
 	if not is_on_floor():
@@ -137,8 +157,14 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func _on_laser_timer_timeout():
+	# Hide the laser when the timer times out
+	$Laser.visible = false
+
 func player_sell_method():
+	# Placeholder for player sell logic
 	pass
 
 func player_shop_method():
+	# Placeholder for player shop logic
 	pass

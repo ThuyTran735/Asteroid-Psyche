@@ -540,7 +540,7 @@ target_position = Vector2(41, 0)
 position = Vector2(7, -3.5)
 points = PackedVector2Array(0, 0, 17, 0)
 width = 3.0
-default_color = Color(1, 0, 0, 1)
+default_color = Color(1, 0, 0, 0.85098)
 begin_cap_mode = 2
 end_cap_mode = 2
 
@@ -548,3 +548,8 @@ end_cap_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/DamageAreaLaserDrill"]
 shape = SubResource("SegmentShape2D_ld25r")
+
+[node name="LaserTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true

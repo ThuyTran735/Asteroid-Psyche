@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://bxvd077omnvaj" path="res://Assets/Shops/Tools Shop/shop.png" id="4_11o43"]
 [ext_resource type="PackedScene" uid="uid://cyd4m3ilc8ewv" path="res://Scenes/shopmenu.tscn" id="4_ecx0y"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_cwo4t"]
 atlas = ExtResource("2_vrfnq")
 region = Rect2(0, 0, 10, 10)
