@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmdvhnv0ho45e"
-path="res://.godot/imported/spritesheet (2).png-c38182702e2824f84f5f39627d6a1657.ctex"
+uid="uid://3dk2sgw8br4y"
+path="res://.godot/imported/Medium_Drill.png-2b0c5ae5508606c23dfdfc1bb3066e19.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/spritesheet (2).png"
-dest_files=["res://.godot/imported/spritesheet (2).png-c38182702e2824f84f5f39627d6a1657.ctex"]
+source_file="res://Assets/Shops/Tools/Medium_Drill.png"
+dest_files=["res://.godot/imported/Medium_Drill.png-2b0c5ae5508606c23dfdfc1bb3066e19.ctex"]
 
 [params]
 
