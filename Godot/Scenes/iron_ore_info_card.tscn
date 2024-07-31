@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgkumqufhtaa1"]
+
+[ext_resource type="Script" path="res://Scripts/iron_ore_info_card.gd" id="1_3ol76"]
+[ext_resource type="Texture2D" uid="uid://bp8q5har5fu55" path="res://Assets/Tiles/Ores/iron-1.png" id="1_281dp"]
+[ext_resource type="Texture2D" uid="uid://iflmmcm2k7ra" path="res://Assets/Tiles/Ores/iron-2.png" id="2_3hm33"]
+[ext_resource type="Script" path="res://Scripts/amount_mined_iron.gd" id="2_p8aue"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ciuee"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_281dp")
+}],
+"loop": true,
+"name": &"iron_1",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0uri4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3hm33")
+}],
+"loop": true,
+"name": &"iron_2",
+"speed": 5.0
+}]
+
+[node name="iron_ore_info_card" type="StaticBody2D"]
+script = ExtResource("1_3ol76")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+offset_right = 176.0
+offset_bottom = 130.0
+scale = Vector2(2, 2)
+color = Color(0.172549, 0.172549, 0.172549, 0.94902)
+
+[node name="name" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 113.0
+offset_right = 178.0
+offset_bottom = 29.0
+scale = Vector2(2, 2)
+text = "Iron Ore"
+
+[node name="infomation" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 124.0
+offset_right = 675.5
+offset_bottom = 288.0
+scale = Vector2(0.5, 0.5)
+text = "Iron is the fourth most abundant element in the Earth's crust, with primary ores like hematite and magnetite. Major producers include Australia, Brazil, China, and India. Iron ore is primarily used to produce steel, which is crucial for construction, transportation, and manufacturing. Extracted through open-pit and underground mining, the ore undergoes processing to concentrate its iron content. While mining can have environmental impacts, modern practices aim to mitigate these. Iron and steel are highly recyclable, reducing the need for raw ore. Historically significant, iron has been used for over 5,000 years, revolutionizing tools and weaponry during the Iron Age."
+
+[node name="worth" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 206.0
+offset_right = 262.5
+offset_bottom = 233.0
+scale = Vector2(0.75, 0.75)
+text = "Worth: $3, $6"
+
+[node name="health" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 221.0
+offset_right = 134.5
+offset_bottom = 261.0
+scale = Vector2(0.75, 0.75)
+text = "Health: 4, 64"
+
+[node name="amount_mined_iron" type="RichTextLabel" parent="."]
+offset_left = 12.5
+offset_top = 234.5
+offset_right = 217.5
+offset_bottom = 274.5
+scale = Vector2(0.75, 0.75)
+text = "Amount Mined: "
+script = ExtResource("2_p8aue")
+
+[node name="icon1" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(142.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_ciuee")
+animation = &"iron_1"
+
+[node name="icon2" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(212.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_0uri4")
+animation = &"iron_2"
+
+[node name="exit" type="Button" parent="."]
+light_mask = 0
+offset_left = 300.0
+offset_top = 224.0
+offset_right = 347.0
+offset_bottom = 255.0
+text = "Exit"
+icon_alignment = 1
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
