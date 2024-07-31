@@ -507,4 +507,6 @@ position_smoothing_speed = 3.0
 [node name="IwonderWhatThisDoes" type="AudioStreamPlayer" parent="Billy"]
 stream = ExtResource("35_8kxrm")
 
+[node name="jump" type="AudioStreamPlayer" parent="Billy"]
+
 [node name="block" type="AudioStreamPlayer" parent="."]
