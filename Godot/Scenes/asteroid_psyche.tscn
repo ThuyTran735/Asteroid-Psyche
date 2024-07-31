@@ -470,38 +470,47 @@ offset_right = 88.0
 offset_bottom = -17.0
 
 [node name="iron_ore_info_card" parent="Billy/Control" instance=ExtResource("29_1038x")]
+visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="copper_ore_info_card" parent="Billy/Control" instance=ExtResource("30_usvwu")]
+visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="silver_ore_info_card" parent="Billy/Control" instance=ExtResource("31_d2nqv")]
+visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="gold_ore_info_card" parent="Billy/Control" instance=ExtResource("45_kjsbe")]
+visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="amethyst_ore_info_card" parent="Billy/Control" instance=ExtResource("46_ag5b3")]
+visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="sapphire_ore_info_card" parent="Billy/Control" instance=ExtResource("47_h5u7x")]
+visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="emerald_ore_info_card" parent="Billy/Control" instance=ExtResource("48_7goaj")]
+visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="ruby_ore_info_card" parent="Billy/Control" instance=ExtResource("49_r5ova")]
+visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="diamond_ore_info_card" parent="Billy/Control" instance=ExtResource("50_nyxmc")]
+visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
@@ -524,6 +533,16 @@ scale = Vector2(0.3, 0.3)
 text = "Blocks: "
 script = ExtResource("4_icqfs")
 
+[node name="Time" type="RichTextLabel" parent="Billy/Control"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 602.0
+offset_bottom = 36.0
+scale = Vector2(0.3, 0.3)
+text = "Blocks: "
+script = ExtResource("4_icqfs")
+
 [node name="Information" type="Button" parent="Billy/Control"]
 layout_mode = 0
 offset_left = 162.0
@@ -534,6 +553,7 @@ scale = Vector2(0.3, 0.3)
 text = "Information"
 
 [node name="Information Menu" parent="Billy/Control" instance=ExtResource("53_uxxc7")]
+visible = false
 offset_left = 20.0
 offset_top = 7.0
 offset_right = 20.0
