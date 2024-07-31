@@ -503,10 +503,13 @@ zoom = Vector2(6, 6)
 position_smoothing_speed = 3.0
 
 [node name="Inv_Ui" parent="Billy" instance=ExtResource("34_g7wry")]
+visible = false
 
 [node name="IwonderWhatThisDoes" type="AudioStreamPlayer" parent="Billy"]
 stream = ExtResource("35_8kxrm")
+volume_db = -31.796
 
 [node name="jump" type="AudioStreamPlayer" parent="Billy"]
+volume_db = -31.796
 
 [node name="block" type="AudioStreamPlayer" parent="."]
