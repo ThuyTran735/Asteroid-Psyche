@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brcn35cod5rx4"
-path="res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"
+uid="uid://caqi0u3rq5g47"
+path="res://.godot/imported/sapphire-3.png-2a1b78903e05552656dd1e27fbd468d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/Terrain/sixth-layer.png"
-dest_files=["res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"]
+source_file="res://Assets/Tiles/Ores/sapphire-3.png"
+dest_files=["res://.godot/imported/sapphire-3.png-2a1b78903e05552656dd1e27fbd468d5.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brcn35cod5rx4"
-path="res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"
+uid="uid://132khhs4vhre"
+path="res://.godot/imported/emerald-2.png-1caf41fcd9df757d7cf4f16ca7e11868.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/Terrain/sixth-layer.png"
-dest_files=["res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"]
+source_file="res://Assets/Tiles/Ores/emerald-2.png"
+dest_files=["res://.godot/imported/emerald-2.png-1caf41fcd9df757d7cf4f16ca7e11868.ctex"]
 
 [params]
 

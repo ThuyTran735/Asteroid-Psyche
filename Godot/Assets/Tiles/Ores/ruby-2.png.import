@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brcn35cod5rx4"
-path="res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"
+uid="uid://c6jk4hr3i7ikp"
+path="res://.godot/imported/ruby-2.png-5e7ae0237a9cf33036322a6ea1ba5a05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/Terrain/sixth-layer.png"
-dest_files=["res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"]
+source_file="res://Assets/Tiles/Ores/ruby-2.png"
+dest_files=["res://.godot/imported/ruby-2.png-5e7ae0237a9cf33036322a6ea1ba5a05.ctex"]
 
 [params]
 

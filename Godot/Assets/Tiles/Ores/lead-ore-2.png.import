@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brcn35cod5rx4"
-path="res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"
+uid="uid://c5nl3ojp6ofn5"
+path="res://.godot/imported/lead-ore-2.png-5a25e09942073fcf3351e7f4d996e21a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/Terrain/sixth-layer.png"
-dest_files=["res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"]
+source_file="res://Assets/Tiles/Ores/lead-ore-2.png"
+dest_files=["res://.godot/imported/lead-ore-2.png-5a25e09942073fcf3351e7f4d996e21a.ctex"]
 
 [params]
 

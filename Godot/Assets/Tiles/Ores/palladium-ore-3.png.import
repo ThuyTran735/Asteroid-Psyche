@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brcn35cod5rx4"
-path="res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"
+uid="uid://b35k4bjb1hooq"
+path="res://.godot/imported/palladium-ore-3.png-6824808961dd4dffad2468945c6b6e86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/Terrain/sixth-layer.png"
-dest_files=["res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"]
+source_file="res://Assets/Tiles/Ores/palladium-ore-3.png"
+dest_files=["res://.godot/imported/palladium-ore-3.png-6824808961dd4dffad2468945c6b6e86.ctex"]
 
 [params]
 

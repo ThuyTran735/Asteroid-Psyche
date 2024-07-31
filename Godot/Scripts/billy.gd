@@ -3,7 +3,11 @@ extends CharacterBody2D
 const SPEED = 75
 const JUMP_VELOCITY = -200
 const max_range = 5000
+<<<<<<< Updated upstream
 const LASER_DURATION = 0.5  # Set the laser duration in seconds
+=======
+const LASER_DURATION = 0.2  # Set the laser duration in seconds, change it in LaserTimer node too
+>>>>>>> Stashed changes
 
 var based_width = 3
 var widthy = based_width
@@ -23,7 +27,11 @@ func _ready():
 	if laser_timer == null:
 		laser_timer = $LaserTimer
 	laser_timer.timeout.connect(_on_laser_timer_timeout)
+<<<<<<< Updated upstream
 	# Set the timer's wait time to 1.5 seconds
+=======
+	# Set the timer's wait time to x amount of seconds
+>>>>>>> Stashed changes
 	laser_timer.wait_time = LASER_DURATION
 	laser_timer.one_shot = true
 	# Ensure the laser starts as invisible

@@ -550,6 +550,10 @@ end_cap_mode = 2
 shape = SubResource("SegmentShape2D_ld25r")
 
 [node name="LaserTimer" type="Timer" parent="."]
+<<<<<<< Updated upstream
 wait_time = 0.5
+=======
+wait_time = 0.2
+>>>>>>> Stashed changes
 one_shot = true
 autostart = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brcn35cod5rx4"
-path="res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"
+uid="uid://edvgxkqib3be"
+path="res://.godot/imported/nickel-ore-2.png-2a700e28f5a2f179aa89760e2fd3b67b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/Terrain/sixth-layer.png"
-dest_files=["res://.godot/imported/sixth-layer.png-24129f577cfd7282d4748a8d07ec8b0a.ctex"]
+source_file="res://Assets/Tiles/Ores/nickel-ore-2.png"
+dest_files=["res://.godot/imported/nickel-ore-2.png-2a700e28f5a2f179aa89760e2fd3b67b.ctex"]
 
 [params]
 
