@@ -87,6 +87,10 @@ func _physics_process(delta):
 	var player_pos = global_position
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		var audio_player = $jump
+		var audio_stream1 = load("res://Assets/Audio/jump.mp3")
+		audio_player.stream = audio_stream1
+		audio_player.play()
 		velocity.y = JUMP_VELOCITY
 
 	var move_direction = Input.get_axis("move_left", "move_right")

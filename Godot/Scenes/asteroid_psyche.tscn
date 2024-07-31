@@ -556,6 +556,10 @@ visible = false
 
 [node name="IwonderWhatThisDoes" type="AudioStreamPlayer" parent="Billy"]
 stream = ExtResource("35_8kxrm")
+volume_db = -31.796
+
+[node name="jump" type="AudioStreamPlayer" parent="Billy"]
+volume_db = -31.796
 
 [node name="block" type="AudioStreamPlayer" parent="."]
 
