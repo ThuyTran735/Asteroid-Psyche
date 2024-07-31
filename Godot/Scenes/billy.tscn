@@ -550,6 +550,6 @@ end_cap_mode = 2
 shape = SubResource("SegmentShape2D_ld25r")
 
 [node name="LaserTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.15
 one_shot = true
 autostart = true

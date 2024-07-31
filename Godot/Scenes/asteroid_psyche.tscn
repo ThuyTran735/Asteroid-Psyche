@@ -49,6 +49,9 @@
 [ext_resource type="AudioStream" uid="uid://cctd7lgvwujif" path="res://Assets/Audio/Honeylune_Ridge.mp3" id="35_8kxrm"]
 [ext_resource type="Texture2D" uid="uid://dd3x7heen553m" path="res://Assets/Tiles/Ores/diamond-3.png" id="36_0v50a"]
 
+[sub_resource type="TileSet" id="TileSet_s2685"]
+tile_size = Vector2i(10, 10)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebv2p"]
 texture = ExtResource("9_6nwww")
 texture_region_size = Vector2i(10, 10)
@@ -391,11 +394,12 @@ fill = 1
 fill_from = Vector2(0.509174, 0.5)
 fill_to = Vector2(0.784404, 0.275229)
 
-[sub_resource type="TileSet" id="TileSet_s2685"]
-tile_size = Vector2i(10, 10)
-
 [node name="Asteroid Psyche" type="Node2D"]
 script = ExtResource("1_nudaw")
+
+[node name="Background" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_s2685")
+format = 2
 
 [node name="Metal" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_bee6v")
@@ -504,7 +508,3 @@ position_smoothing_speed = 3.0
 stream = ExtResource("35_8kxrm")
 
 [node name="block" type="AudioStreamPlayer" parent="."]
-
-[node name="Background" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_s2685")
-format = 2

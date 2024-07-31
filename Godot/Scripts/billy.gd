@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 75
 const JUMP_VELOCITY = -200
 const max_range = 5000
-const LASER_DURATION = 0.2  # Set the laser duration in seconds, change it in LaserTimer node too
+const LASER_DURATION = 0.15  # Set the laser duration in seconds, change it in LaserTimer node too
 
 var based_width = 3
 var widthy = based_width
@@ -170,5 +170,3 @@ func player_sell_method():
 func player_shop_method():
 	# Placeholder for player shop logic
 	pass
-
-
