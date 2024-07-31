@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c33teoo4idjpp"
-path="res://.godot/imported/gold4.png-f22694026200d517e5e4ae737ef1e7fc.ctex"
+uid="uid://dtmvx0oyylcxm"
+path="res://.godot/imported/gold1.png-3a698db085eac8610f481a1c11f6ab23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/Ores/gold4.png"
-dest_files=["res://.godot/imported/gold4.png-f22694026200d517e5e4ae737ef1e7fc.ctex"]
+source_file="res://Assets/Tiles/Ores/gold1.png"
+dest_files=["res://.godot/imported/gold1.png-3a698db085eac8610f481a1c11f6ab23.ctex"]
 
 [params]
 

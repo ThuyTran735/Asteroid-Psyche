@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxu5b4g6uuykc"]
+
+[ext_resource type="Script" path="res://Scripts/gold_ore_info_card.gd" id="1_2eryo"]
+[ext_resource type="Script" path="res://Scripts/amount_mined_gold.gd" id="2_7plal"]
+[ext_resource type="Texture2D" uid="uid://crwmqf4675qqq" path="res://Assets/Tiles/Ores/gold2.png" id="3_jxn7b"]
+[ext_resource type="Texture2D" uid="uid://c33teoo4idjpp" path="res://Assets/Tiles/Ores/gold3.png" id="4_17rv8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6xs55"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jxn7b")
+}],
+"loop": true,
+"name": &"gold_1",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lewc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_17rv8")
+}],
+"loop": true,
+"name": &"gold_2",
+"speed": 5.0
+}]
+
+[node name="gold_ore_info_card" type="StaticBody2D"]
+script = ExtResource("1_2eryo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+offset_right = 176.0
+offset_bottom = 130.0
+scale = Vector2(2, 2)
+color = Color(0.172549, 0.172549, 0.172549, 0.94902)
+
+[node name="name" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 109.0
+offset_right = 178.0
+offset_bottom = 29.0
+scale = Vector2(2, 2)
+text = "Gold Ore"
+
+[node name="infomation" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 124.0
+offset_right = 675.5
+offset_bottom = 288.0
+scale = Vector2(0.5, 0.5)
+text = "Gold, symbolized by Au and with an atomic number of 79, is a dense and highly malleable metal known for its excellent electrical conductivity and resistance to tarnishing. Its natural occurrence in pure form, combined with its cultural and historical significance, has made it a symbol of wealth and prestige for thousands of years. Gold is used in electronics, jewelry, and medicine, and is found not only on Earth but also in space, formed during cosmic events like supernovae. Despite its value, gold mining poses environmental challenges, underscoring the need for sustainable practices."
+
+[node name="worth" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 206.0
+offset_right = 262.5
+offset_bottom = 233.0
+scale = Vector2(0.75, 0.75)
+text = "Worth: $30, $65"
+
+[node name="health" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 13.0
+offset_top = 221.0
+offset_right = 230.0
+offset_bottom = 261.0
+scale = Vector2(0.75, 0.75)
+text = "Health: 240, 900"
+
+[node name="amount_mined_gold" type="RichTextLabel" parent="."]
+offset_left = 13.0
+offset_top = 235.0
+offset_right = 392.0
+offset_bottom = 275.0
+scale = Vector2(0.75, 0.75)
+text = "Amount Mined: "
+script = ExtResource("2_7plal")
+
+[node name="icon1" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(142.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_6xs55")
+animation = &"gold_1"
+
+[node name="icon2" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(212.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_lewc5")
+animation = &"gold_2"
+
+[node name="exit" type="Button" parent="."]
+light_mask = 0
+offset_left = 300.0
+offset_top = 224.0
+offset_right = 347.0
+offset_bottom = 255.0
+text = "Exit"
+icon_alignment = 1
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

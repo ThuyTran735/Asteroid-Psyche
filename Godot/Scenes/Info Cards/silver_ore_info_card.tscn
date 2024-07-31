@@ -52,7 +52,7 @@ offset_top = 124.0
 offset_right = 675.5
 offset_bottom = 288.0
 scale = Vector2(0.5, 0.5)
-text = "Silver is commonly found in its native form or as a byproduct of mining other metals like gold and copper, with top producers being Mexico, Peru, China, Russia, and Poland. It is extracted using open-pit and underground mining methods and processed through crushing, grinding, flotation, cyanidation, and smelting. Silver is used in electronics, jewelry, photography, and as an investment due to its conductivity, reflectivity, and antimicrobial properties. While silver mining can cause environmental issues, sustainable practices are increasingly followed. Silver is highly recyclable, reducing the need for new mining. Historically, silver has been valued for currency, ornamentation, and trade, playing a crucial role in ancient economies."
+text = "Silver, with the chemical symbol Ag and atomic number 47, is renowned for its highest electrical and thermal conductivity among metals, making it essential in electronics and reflective coatings. Found naturally in both pure form and ores, silver also boasts antimicrobial properties and has been historically used in currency and jewelry. Its high reflectivity benefits applications like mirrors and solar panels, while its malleability allows for fine shaping. Despite its versatility, silver mining poses environmental challenges, emphasizing the need for sustainable practices."
 
 [node name="worth" type="RichTextLabel" parent="."]
 light_mask = 0
@@ -73,10 +73,10 @@ scale = Vector2(0.75, 0.75)
 text = "Health: 16, 160"
 
 [node name="amount_mined_silver" type="RichTextLabel" parent="."]
-offset_left = 12.5
-offset_top = 234.5
-offset_right = 217.5
-offset_bottom = 274.5
+offset_left = 13.0
+offset_top = 235.0
+offset_right = 399.0
+offset_bottom = 275.0
 scale = Vector2(0.75, 0.75)
 text = "Amount Mined: "
 script = ExtResource("2_ddryn")

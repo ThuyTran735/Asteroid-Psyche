@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://bnoferxl2wl4t"]
+[gd_scene load_steps=99 format=3 uid="uid://bnoferxl2wl4t"]
 
 [ext_resource type="PackedScene" uid="uid://bk044ya3dinr1" path="res://Scenes/billy.tscn" id="1_75q7w"]
 [ext_resource type="Script" path="res://Scripts/asteroid_psyche.gd" id="1_nudaw"]
@@ -34,20 +34,28 @@
 [ext_resource type="Texture2D" uid="uid://brcn35cod5rx4" path="res://Assets/Tiles/Terrain/sixth-layer.png" id="21_l1kxa"]
 [ext_resource type="Script" path="res://Scripts/Layers/SixthLayer.gd" id="21_nlsn7"]
 [ext_resource type="Texture2D" uid="uid://p33ifk3iu545" path="res://Assets/Tiles/Ores/sapphire-2.png" id="21_p7yd2"]
-[ext_resource type="Texture2D" uid="uid://c33teoo4idjpp" path="res://Assets/Tiles/Ores/gold4.png" id="21_u52nd"]
+[ext_resource type="Texture2D" uid="uid://c33teoo4idjpp" path="res://Assets/Tiles/Ores/gold3.png" id="21_u52nd"]
 [ext_resource type="Texture2D" uid="uid://132khhs4vhre" path="res://Assets/Tiles/Ores/emerald-2.png" id="22_jsf0i"]
 [ext_resource type="Texture2D" uid="uid://c6jk4hr3i7ikp" path="res://Assets/Tiles/Ores/ruby-2.png" id="24_62o36"]
 [ext_resource type="Texture2D" uid="uid://tibofbac46x" path="res://Assets/Tiles/Ores/amethyst-3.png" id="24_i1y0o"]
 [ext_resource type="Texture2D" uid="uid://caqi0u3rq5g47" path="res://Assets/Tiles/Ores/sapphire-3.png" id="24_l8w5k"]
 [ext_resource type="Texture2D" uid="uid://bxtubd2ay7a26" path="res://Assets/Tiles/Ores/diamond-2.png" id="26_ymlgh"]
-[ext_resource type="PackedScene" uid="uid://bgkumqufhtaa1" path="res://Scenes/iron_ore_info_card.tscn" id="29_1038x"]
+[ext_resource type="PackedScene" uid="uid://bgkumqufhtaa1" path="res://Scenes/Info Cards/iron_ore_info_card.tscn" id="29_1038x"]
 [ext_resource type="Texture2D" uid="uid://yplrabcikobp" path="res://Assets/Tiles/Ores/emerald-3.png" id="30_c7st7"]
-[ext_resource type="PackedScene" uid="uid://clqm7btw556h1" path="res://Scenes/copper_ore_info_card.tscn" id="30_usvwu"]
-[ext_resource type="PackedScene" uid="uid://cln6fd5amimgs" path="res://Scenes/silver_ore_info_card.tscn" id="31_d2nqv"]
+[ext_resource type="PackedScene" uid="uid://clqm7btw556h1" path="res://Scenes/Info Cards/copper_ore_info_card.tscn" id="30_usvwu"]
+[ext_resource type="PackedScene" uid="uid://cln6fd5amimgs" path="res://Scenes/Info Cards/silver_ore_info_card.tscn" id="31_d2nqv"]
 [ext_resource type="Texture2D" uid="uid://dmc8uoq1tfoig" path="res://Assets/Tiles/Ores/ruby-3.png" id="33_foupj"]
 [ext_resource type="PackedScene" uid="uid://etr1i3v7aqdh" path="res://Scenes/ui_.tscn" id="34_g7wry"]
 [ext_resource type="AudioStream" uid="uid://cctd7lgvwujif" path="res://Assets/Audio/Honeylune_Ridge.mp3" id="35_8kxrm"]
 [ext_resource type="Texture2D" uid="uid://dd3x7heen553m" path="res://Assets/Tiles/Ores/diamond-3.png" id="36_0v50a"]
+[ext_resource type="PackedScene" uid="uid://dxu5b4g6uuykc" path="res://Scenes/Info Cards/gold_ore_info_card.tscn" id="45_kjsbe"]
+[ext_resource type="PackedScene" uid="uid://drh6vj58hge2e" path="res://Scenes/Info Cards/amethyst_ore_info_card.tscn" id="46_ag5b3"]
+[ext_resource type="PackedScene" uid="uid://i3jes505ovew" path="res://Scenes/Info Cards/sapphire_ore_info_card.tscn" id="47_h5u7x"]
+[ext_resource type="PackedScene" uid="uid://d1s81p0j56wqm" path="res://Scenes/Info Cards/emerald_ore_info_card.tscn" id="48_7goaj"]
+[ext_resource type="PackedScene" uid="uid://cf54yi5qb4kyc" path="res://Scenes/Info Cards/ruby_ore_info_card.tscn" id="49_r5ova"]
+[ext_resource type="PackedScene" uid="uid://bv00chj2veqlo" path="res://Scenes/Info Cards/diamond_ore_info_card.tscn" id="50_nyxmc"]
+[ext_resource type="PackedScene" uid="uid://dxdq7u2khk80l" path="res://Scenes/infomation_menu.tscn" id="53_uxxc7"]
+[ext_resource type="Script" path="res://Scripts/information_menu.gd" id="54_138bu"]
 
 [sub_resource type="TileSet" id="TileSet_s2685"]
 tile_size = Vector2i(10, 10)
@@ -473,6 +481,30 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
+[node name="gold_ore_info_card" parent="Billy/Control" instance=ExtResource("45_kjsbe")]
+position = Vector2(44, 14)
+scale = Vector2(0.3, 0.3)
+
+[node name="amethyst_ore_info_card" parent="Billy/Control" instance=ExtResource("46_ag5b3")]
+position = Vector2(44, 14)
+scale = Vector2(0.3, 0.3)
+
+[node name="sapphire_ore_info_card" parent="Billy/Control" instance=ExtResource("47_h5u7x")]
+position = Vector2(44, 14)
+scale = Vector2(0.3, 0.3)
+
+[node name="emerald_ore_info_card" parent="Billy/Control" instance=ExtResource("48_7goaj")]
+position = Vector2(44, 14)
+scale = Vector2(0.3, 0.3)
+
+[node name="ruby_ore_info_card" parent="Billy/Control" instance=ExtResource("49_r5ova")]
+position = Vector2(44, 14)
+scale = Vector2(0.3, 0.3)
+
+[node name="diamond_ore_info_card" parent="Billy/Control" instance=ExtResource("50_nyxmc")]
+position = Vector2(44, 14)
+scale = Vector2(0.3, 0.3)
+
 [node name="Money" type="RichTextLabel" parent="Billy/Control"]
 layout_mode = 0
 offset_left = 2.0
@@ -492,6 +524,23 @@ scale = Vector2(0.3, 0.3)
 text = "Blocks: "
 script = ExtResource("4_icqfs")
 
+[node name="Information" type="Button" parent="Billy/Control"]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 1.0
+offset_right = 263.0
+offset_bottom = 32.0
+scale = Vector2(0.3, 0.3)
+text = "Information"
+
+[node name="Information Menu" parent="Billy/Control" instance=ExtResource("53_uxxc7")]
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 20.0
+offset_bottom = 7.0
+scale = Vector2(0.2, 0.2)
+script = ExtResource("54_138bu")
+
 [node name="PointLight2D" type="PointLight2D" parent="Billy"]
 energy = 0.5
 shadow_filter = 1
@@ -503,8 +552,11 @@ zoom = Vector2(6, 6)
 position_smoothing_speed = 3.0
 
 [node name="Inv_Ui" parent="Billy" instance=ExtResource("34_g7wry")]
+visible = false
 
 [node name="IwonderWhatThisDoes" type="AudioStreamPlayer" parent="Billy"]
 stream = ExtResource("35_8kxrm")
 
 [node name="block" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="Billy/Control/Information" to="Billy/Control/Information Menu" method="_on_information_pressed"]

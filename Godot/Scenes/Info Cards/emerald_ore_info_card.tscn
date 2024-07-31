@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1s81p0j56wqm"]
+
+[ext_resource type="Script" path="res://Scripts/amount_mined_emerald.gd" id="1_n0vm5"]
+[ext_resource type="Script" path="res://Scripts/emerald_ore_info_card.gd" id="1_sq62w"]
+[ext_resource type="Texture2D" uid="uid://b7pwvjjvsaxii" path="res://Assets/Tiles/Ores/emerald-1.png" id="2_udb7h"]
+[ext_resource type="Texture2D" uid="uid://132khhs4vhre" path="res://Assets/Tiles/Ores/emerald-2.png" id="3_74eb1"]
+[ext_resource type="Texture2D" uid="uid://yplrabcikobp" path="res://Assets/Tiles/Ores/emerald-3.png" id="4_xafm8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcylg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_udb7h")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w07um"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_74eb1")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oir5e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xafm8")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}]
+
+[node name="emerald_ore_info_card" type="StaticBody2D"]
+script = ExtResource("1_sq62w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+offset_right = 176.0
+offset_bottom = 130.0
+scale = Vector2(2, 2)
+color = Color(0.172549, 0.172549, 0.172549, 0.94902)
+
+[node name="name" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 47.0
+offset_right = 176.0
+offset_bottom = 29.0
+scale = Vector2(2, 2)
+text = "Emerald Deposit"
+
+[node name="infomation" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 124.0
+offset_right = 675.5
+offset_bottom = 288.0
+scale = Vector2(0.5, 0.5)
+text = "Emerald, a green variety of the mineral beryl, is celebrated for its rich, vivid color and remarkable brilliance. With a hardness of 7.5 to 8 on the Mohs scale, it is durable but can be prone to inclusions, which are often referred to as \"jardin\" or garden. Formed in metamorphic rocks, emeralds are primarily sourced from Colombia, Brazil, and Zambia. Highly prized in jewelry for its beauty and rarity, emeralds have been treasured for centuries and are often associated with rebirth, love, and vitality. They are also the birthstone for May."
+
+[node name="worth" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 206.0
+offset_right = 262.5
+offset_bottom = 233.0
+scale = Vector2(0.75, 0.75)
+text = "Worth: $60, $120, $340"
+
+[node name="health" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 13.0
+offset_top = 221.0
+offset_right = 308.0
+offset_bottom = 261.0
+scale = Vector2(0.75, 0.75)
+text = "Health: 96, 960, 3600"
+
+[node name="amount_mined_emerald" type="RichTextLabel" parent="."]
+offset_left = 13.0
+offset_top = 235.0
+offset_right = 395.0
+offset_bottom = 275.0
+scale = Vector2(0.75, 0.75)
+text = "Amount Mined: "
+script = ExtResource("1_n0vm5")
+
+[node name="icon1" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(107.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_qcylg")
+animation = &"1"
+
+[node name="icon2" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(177.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_w07um")
+animation = &"2"
+
+[node name="icon3" type="AnimatedSprite2D" parent="."]
+position = Vector2(247.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_oir5e")
+animation = &"3"
+
+[node name="exit" type="Button" parent="."]
+light_mask = 0
+offset_left = 300.0
+offset_top = 224.0
+offset_right = 347.0
+offset_bottom = 255.0
+text = "Exit"
+icon_alignment = 1
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

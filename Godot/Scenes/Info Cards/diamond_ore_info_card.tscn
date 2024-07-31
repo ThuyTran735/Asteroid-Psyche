@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://bv00chj2veqlo"]
+
+[ext_resource type="Texture2D" uid="uid://dmkm5h6hrjnuc" path="res://Assets/Tiles/Ores/diamond-1.png" id="1_4cmtc"]
+[ext_resource type="Script" path="res://Scripts/diamond_ore_info_card.gd" id="1_pkiag"]
+[ext_resource type="Texture2D" uid="uid://bxtubd2ay7a26" path="res://Assets/Tiles/Ores/diamond-2.png" id="2_16rbd"]
+[ext_resource type="Script" path="res://Scripts/amount_mined_diamond.gd" id="2_i1sak"]
+[ext_resource type="Texture2D" uid="uid://dd3x7heen553m" path="res://Assets/Tiles/Ores/diamond-3.png" id="3_2whvk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgxge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4cmtc")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hggd1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_16rbd")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0twsn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2whvk")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}]
+
+[node name="diamond_ore_info_card" type="StaticBody2D"]
+script = ExtResource("1_pkiag")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+offset_right = 176.0
+offset_bottom = 130.0
+scale = Vector2(2, 2)
+color = Color(0.172549, 0.172549, 0.172549, 0.94902)
+
+[node name="name" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 41.0
+offset_right = 176.0
+offset_bottom = 29.0
+scale = Vector2(2, 2)
+text = "Diamond Deposit"
+
+[node name="infomation" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 124.0
+offset_right = 675.5
+offset_bottom = 288.0
+scale = Vector2(0.5, 0.5)
+text = "Diamond, the hardest natural material on Earth with a Mohs hardness of 10, is renowned for its unparalleled brilliance and durability. Composed of carbon atoms arranged in a crystal lattice, diamonds are formed deep within the Earth's mantle under extreme pressure and temperature. They come in various colors, though the most prized are clear or colorless. Diamonds are valued for their exceptional light dispersion and are widely used in fine jewelry and industrial cutting tools. Symbolizing eternal love and invincibility, diamonds are also the birthstone for April."
+
+[node name="worth" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 206.0
+offset_right = 262.5
+offset_bottom = 233.0
+scale = Vector2(0.75, 0.75)
+text = "Worth: $150, $400, $750"
+
+[node name="health" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 13.0
+offset_top = 221.0
+offset_right = 367.0
+offset_bottom = 261.0
+scale = Vector2(0.75, 0.75)
+text = "Health: 750, 2000, 5000"
+
+[node name="amount_mined_diamond" type="RichTextLabel" parent="."]
+offset_left = 12.5
+offset_top = 234.5
+offset_right = 217.5
+offset_bottom = 274.5
+scale = Vector2(0.75, 0.75)
+text = "Amount Mined: "
+script = ExtResource("2_i1sak")
+
+[node name="icon1" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(107.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_xgxge")
+animation = &"1"
+
+[node name="icon2" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(177.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_hggd1")
+animation = &"2"
+
+[node name="icon3" type="AnimatedSprite2D" parent="."]
+position = Vector2(247.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_0twsn")
+animation = &"3"
+
+[node name="exit" type="Button" parent="."]
+light_mask = 0
+offset_left = 300.0
+offset_top = 224.0
+offset_right = 347.0
+offset_bottom = 255.0
+text = "Exit"
+icon_alignment = 1
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

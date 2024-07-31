@@ -52,7 +52,7 @@ offset_top = 124.0
 offset_right = 675.5
 offset_bottom = 288.0
 scale = Vector2(0.5, 0.5)
-text = "Iron is the fourth most abundant element in the Earth's crust, with primary ores like hematite and magnetite. Major producers include Australia, Brazil, China, and India. Iron ore is primarily used to produce steel, which is crucial for construction, transportation, and manufacturing. Extracted through open-pit and underground mining, the ore undergoes processing to concentrate its iron content. While mining can have environmental impacts, modern practices aim to mitigate these. Iron and steel are highly recyclable, reducing the need for raw ore. Historically significant, iron has been used for over 5,000 years, revolutionizing tools and weaponry during the Iron Age."
+text = "Iron, with the symbol Fe and atomic number 26, is an abundant and essential element, making up about 5% of the Earth's crust and being a major component of the Earth's core. It is ferromagnetic, crucial for biological functions like oxygen transport in blood, and forms rust when exposed to moisture and oxygen. Iron is primarily used in steel production, which is vital for construction and manufacturing. Historically significant since the Iron Age, iron's high recyclability also helps conserve resources and reduce environmental impact."
 
 [node name="worth" type="RichTextLabel" parent="."]
 light_mask = 0
@@ -73,10 +73,10 @@ scale = Vector2(0.75, 0.75)
 text = "Health: 4, 64"
 
 [node name="amount_mined_iron" type="RichTextLabel" parent="."]
-offset_left = 12.5
-offset_top = 234.5
-offset_right = 217.5
-offset_bottom = 274.5
+offset_left = 13.0
+offset_top = 235.0
+offset_right = 397.0
+offset_bottom = 275.0
 scale = Vector2(0.75, 0.75)
 text = "Amount Mined: "
 script = ExtResource("2_p8aue")

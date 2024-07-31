@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://drh6vj58hge2e"]
+
+[ext_resource type="Script" path="res://Scripts/amount_mined_amethyst.gd" id="1_r336y"]
+[ext_resource type="Script" path="res://Scripts/amethyst_ore_info_card.gd" id="1_vixbv"]
+[ext_resource type="Texture2D" uid="uid://872mw8pfj2w2" path="res://Assets/Tiles/Ores/amethyst-1.png" id="2_yhhdq"]
+[ext_resource type="Texture2D" uid="uid://b8t7vihma65mw" path="res://Assets/Tiles/Ores/amethyst-2.png" id="3_2d6gp"]
+[ext_resource type="Texture2D" uid="uid://tibofbac46x" path="res://Assets/Tiles/Ores/amethyst-3.png" id="4_tgs6d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ulif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yhhdq")
+}],
+"loop": true,
+"name": &"amethyst_1",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gceic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2d6gp")
+}],
+"loop": true,
+"name": &"amethyst_2",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7p2xq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tgs6d")
+}],
+"loop": true,
+"name": &"amethyst_3",
+"speed": 5.0
+}]
+
+[node name="amethyst_ore_info_card" type="StaticBody2D"]
+script = ExtResource("1_vixbv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+offset_right = 176.0
+offset_bottom = 130.0
+scale = Vector2(2, 2)
+color = Color(0.172549, 0.172549, 0.172549, 0.94902)
+
+[node name="name" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 38.0
+offset_right = 177.0
+offset_bottom = 29.0
+scale = Vector2(2, 2)
+text = "Amethyst Deposit"
+
+[node name="infomation" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 124.0
+offset_right = 675.5
+offset_bottom = 288.0
+scale = Vector2(0.5, 0.5)
+text = "Amethyst, a variety of quartz, is prized for its striking purple hue, which can range from light lavender to deep violet. With a hardness of 7 on the Mohs scale, it is durable enough for use in various types of jewelry. Formed in volcanic rocks and hydrothermal veins, amethyst is often found in geodes and can exhibit unique internal patterns. Historically valued for its supposed calming and healing properties, amethyst has been used in jewelry and decorative items for centuries. It is also the birthstone for February and is associated with clarity and spiritual growth."
+
+[node name="worth" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 12.5
+offset_top = 206.0
+offset_right = 262.5
+offset_bottom = 233.0
+scale = Vector2(0.75, 0.75)
+text = "Worth: $30, $60, $150"
+
+[node name="health" type="RichTextLabel" parent="."]
+light_mask = 0
+offset_left = 13.0
+offset_top = 221.0
+offset_right = 370.0
+offset_bottom = 261.0
+scale = Vector2(0.75, 0.75)
+text = "Health: 64, 640, 2800"
+
+[node name="amount_mined_amethyst" type="RichTextLabel" parent="."]
+offset_left = 13.0
+offset_top = 235.0
+offset_right = 396.0
+offset_bottom = 275.0
+scale = Vector2(0.75, 0.75)
+text = "Amount Mined: "
+script = ExtResource("1_r336y")
+
+[node name="icon1" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(107.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_1ulif")
+animation = &"amethyst_1"
+
+[node name="icon2" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(177.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_gceic")
+animation = &"amethyst_2"
+
+[node name="icon3" type="AnimatedSprite2D" parent="."]
+position = Vector2(247.5, 86.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_7p2xq")
+animation = &"amethyst_3"
+
+[node name="exit" type="Button" parent="."]
+light_mask = 0
+offset_left = 300.0
+offset_top = 224.0
+offset_right = 347.0
+offset_bottom = 255.0
+text = "Exit"
+icon_alignment = 1
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
