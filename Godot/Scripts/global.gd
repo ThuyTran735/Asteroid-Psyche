@@ -28,6 +28,6 @@ var uranium_ore_amount = 0
 var item_main = 0 # Tool type
 var damage = 1 # Tool damage
 
-
+var information_menu_exit_button = 0
 
 var money_multiplier = 1 # Money gets multiplied with the tile money

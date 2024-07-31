@@ -294,191 +294,17 @@ func _ready() -> void:
 					set_cell(0, Vector2i(x, y), 9, Vector2i(0, 0))  # Replace ID with 8 for diamond ore
 					
 func _process(delta):
-	# Check if left mouse button is pressed
-	if Input.is_action_just_pressed("mb_left"):
-		var mouse_pos: Vector2 = get_global_mouse_position()
-		var tile_pos: Vector2 = local_to_map(mouse_pos)
+	if $"../Billy/Control/Information Menu".visible == false:
+		# Check if left mouse button is pressed
+		if Input.is_action_just_pressed("mb_left"):
+			var mouse_pos: Vector2 = get_global_mouse_position()
+			var tile_pos: Vector2 = local_to_map(mouse_pos)
 
-		# Get tile data
-		var tile_source_id = get_cell_source_id(0, tile_pos)
+			# Get tile data
+			var tile_source_id = get_cell_source_id(0, tile_pos)
 
-		# Check if cell data exists (indicating a tile at the position)
-		if tile_source_id == 0:
-			# Tile exists, handle clicks
-			if tile_pos in tile_clicks:
-				tile_clicks[tile_pos] += 1
-			else:
-				tile_clicks[tile_pos] = 1
-
-			# Debug print
-			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-			get_parent().breaking()
-			# Check if the tile has been clicked enough times to break
-			if tile_clicks[tile_pos] * Global.damage >= 48:
-				Global.tile_money = 4
-				# Tile has been clicked enough times, remove it and reward money
-				erase_cell(ZERO, tile_pos)
-				Global.money += money_for_break * Global.money_multiplier * Global.tile_money
-				# Reset the click counter for this tile position
-				tile_clicks.erase(tile_pos)
-				# Add 1 to Global.blocks when a tile is broken
-				Global.blocks += 1
-				
-		if tile_source_id == 1:
-			# Tile exists, handle clicks
-			if tile_pos in tile_clicks:
-				tile_clicks[tile_pos] += 1
-			else:
-				tile_clicks[tile_pos] = 1
-
-			# Debug print
-			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-			get_parent().breaking()
-			# Check if the tile has been clicked enough times to break
-			if tile_clicks[tile_pos] * Global.damage >= 96:
-				Global.tile_money = 10
-				# Tile has been clicked enough times, remove it and reward money
-				erase_cell(0, tile_pos)
-				Global.money += money_for_break * Global.money_multiplier * Global.tile_money
-				# Reset the click counter for this tile position
-				tile_clicks.erase(tile_pos)
-				# Add 1 to Global.blocks when a tile is broken
-				Global.blocks += 1
-				Global.copper_ore_amount += 1
-				
-		if tile_source_id == 2:
-			# Tile exists, handle clicks
-			if tile_pos in tile_clicks:
-				tile_clicks[tile_pos] += 1
-			else:
-				tile_clicks[tile_pos] = 1
-
-			# Debug print
-			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-			get_parent().breaking()
-			# Check if the tile has been clicked enough times to break
-			if tile_clicks[tile_pos] * Global.damage >= 64:
-				Global.tile_money = 6
-				# Tile has been clicked enough times, remove it and reward money
-				erase_cell(0, tile_pos)
-				Global.money += money_for_break * Global.money_multiplier * Global.tile_money
-				# Reset the click counter for this tile position
-				tile_clicks.erase(tile_pos)
-				# Add 1 to Global.blocks when a tile is broken
-				Global.blocks += 1
-				Global.iron_ore_amount += 1
-				
-		if tile_source_id == 3:
-			# Tile exists, handle clicks
-			if tile_pos in tile_clicks:
-				tile_clicks[tile_pos] += 1
-			else:
-				tile_clicks[tile_pos] = 1
-
-			# Debug print
-			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-			get_parent().breaking()
-			# Check if the tile has been clicked enough times to break
-			if tile_clicks[tile_pos] * Global.damage >= 160:
-				Global.tile_money = 16
-				# Tile has been clicked enough times, remove it and reward money
-				erase_cell(0, tile_pos)
-				Global.money += money_for_break * Global.money_multiplier * Global.tile_money
-				# Reset the click counter for this tile position
-				tile_clicks.erase(tile_pos)
-				# Add 1 to Global.blocks when a tile is broken
-				Global.blocks += 1
-				Global.silver_ore_amount += 1
-				
-		if tile_source_id == 4:
-			# Tile exists, handle clicks
-			if tile_pos in tile_clicks:
-				tile_clicks[tile_pos] += 1
-			else:
-				tile_clicks[tile_pos] = 1
-
-			# Debug print
-			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-			get_parent().breaking()
-			# Check if the tile has been clicked enough times to break
-			if tile_clicks[tile_pos] * Global.damage >= 240:
-				Global.tile_money = 30
-				# Tile has been clicked enough times, remove it and reward money
-				erase_cell(0, tile_pos)
-				Global.money += money_for_break * Global.money_multiplier * Global.tile_money
-				# Reset the click counter for this tile position
-				tile_clicks.erase(tile_pos)
-				# Add 1 to Global.blocks when a tile is broken
-				Global.blocks += 1
-				Global.gold_ore_amount += 1
-				
-		if tile_source_id == 5:
-			# Tile exists, handle clicks
-			if tile_pos in tile_clicks:
-				tile_clicks[tile_pos] += 1
-			else:
-				tile_clicks[tile_pos] = 1
-
-			# Debug print
-			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-			get_parent().breaking()
-			# Check if the tile has been clicked enough times to break
-			if tile_clicks[tile_pos] * Global.damage >= 640:
-				Global.tile_money = 60
-				# Tile has been clicked enough times, remove it and reward money
-				erase_cell(0, tile_pos)
-				Global.money += money_for_break * Global.money_multiplier * Global.tile_money
-				# Reset the click counter for this tile position
-				tile_clicks.erase(tile_pos)
-				# Add 1 to Global.blocks when a tile is broken
-				Global.blocks += 1
-				Global.amethyst_ore_amount += 1
-				
-		if tile_source_id == 6:
-			# Tile exists, handle clicks
-			if tile_pos in tile_clicks:
-				tile_clicks[tile_pos] += 1
-			else:
-				tile_clicks[tile_pos] = 1
-
-			# Debug print
-			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-			get_parent().breaking()
-			# Check if the tile has been clicked enough times to break
-			if tile_clicks[tile_pos] * Global.damage >= 800:
-				Global.tile_money = 90
-				# Tile has been clicked enough times, remove it and reward money
-				erase_cell(0, tile_pos)
-				Global.money += money_for_break * Global.money_multiplier * Global.tile_money
-				# Reset the click counter for this tile position
-				tile_clicks.erase(tile_pos)
-				# Add 1 to Global.blocks when a tile is broken
-				Global.blocks += 1
-				Global.sapphire_ore_amount += 1
-				
-		if tile_source_id == 7:
-			# Tile exists, handle clicks
-			if tile_pos in tile_clicks:
-				tile_clicks[tile_pos] += 1
-			else:
-				tile_clicks[tile_pos] = 1
-
-			# Debug print
-			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-			get_parent().breaking()
-			# Check if the tile has been clicked enough times to break
-			if tile_clicks[tile_pos] * Global.damage >= 960:
-				Global.tile_money = 120
-				# Tile has been clicked enough times, remove it and reward money
-				erase_cell(0, tile_pos)
-				Global.money += money_for_break * Global.money_multiplier * Global.tile_money
-				# Reset the click counter for this tile position
-				tile_clicks.erase(tile_pos)
-				# Add 1 to Global.blocks when a tile is broken
-				Global.blocks += 1
-				Global.emerald_ore_amount += 1
-				
-		if tile_source_id == 8:
+			# Check if cell data exists (indicating a tile at the position)
+			if tile_source_id == 0:
 				# Tile exists, handle clicks
 				if tile_pos in tile_clicks:
 					tile_clicks[tile_pos] += 1
@@ -489,18 +315,17 @@ func _process(delta):
 				print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
 				get_parent().breaking()
 				# Check if the tile has been clicked enough times to break
-				if tile_clicks[tile_pos] * Global.damage >= 1120:
-					Global.tile_money = 150
+				if tile_clicks[tile_pos] * Global.damage >= 48:
+					Global.tile_money = 4
 					# Tile has been clicked enough times, remove it and reward money
-					erase_cell(0, tile_pos)
+					erase_cell(ZERO, tile_pos)
 					Global.money += money_for_break * Global.money_multiplier * Global.tile_money
 					# Reset the click counter for this tile position
 					tile_clicks.erase(tile_pos)
 					# Add 1 to Global.blocks when a tile is broken
 					Global.blocks += 1
-					Global.ruby_ore_amount += 1
 					
-		if tile_source_id == 9:
+			if tile_source_id == 1:
 				# Tile exists, handle clicks
 				if tile_pos in tile_clicks:
 					tile_clicks[tile_pos] += 1
@@ -511,8 +336,8 @@ func _process(delta):
 				print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
 				get_parent().breaking()
 				# Check if the tile has been clicked enough times to break
-				if tile_clicks[tile_pos] * Global.damage >= 2000:
-					Global.tile_money = 400
+				if tile_clicks[tile_pos] * Global.damage >= 96:
+					Global.tile_money = 10
 					# Tile has been clicked enough times, remove it and reward money
 					erase_cell(0, tile_pos)
 					Global.money += money_for_break * Global.money_multiplier * Global.tile_money
@@ -520,4 +345,180 @@ func _process(delta):
 					tile_clicks.erase(tile_pos)
 					# Add 1 to Global.blocks when a tile is broken
 					Global.blocks += 1
-					Global.diamond_ore_amount += 1
+					Global.copper_ore_amount += 1
+					
+			if tile_source_id == 2:
+				# Tile exists, handle clicks
+				if tile_pos in tile_clicks:
+					tile_clicks[tile_pos] += 1
+				else:
+					tile_clicks[tile_pos] = 1
+
+				# Debug print
+				print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
+				get_parent().breaking()
+				# Check if the tile has been clicked enough times to break
+				if tile_clicks[tile_pos] * Global.damage >= 64:
+					Global.tile_money = 6
+					# Tile has been clicked enough times, remove it and reward money
+					erase_cell(0, tile_pos)
+					Global.money += money_for_break * Global.money_multiplier * Global.tile_money
+					# Reset the click counter for this tile position
+					tile_clicks.erase(tile_pos)
+					# Add 1 to Global.blocks when a tile is broken
+					Global.blocks += 1
+					Global.iron_ore_amount += 1
+					
+			if tile_source_id == 3:
+				# Tile exists, handle clicks
+				if tile_pos in tile_clicks:
+					tile_clicks[tile_pos] += 1
+				else:
+					tile_clicks[tile_pos] = 1
+
+				# Debug print
+				print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
+				get_parent().breaking()
+				# Check if the tile has been clicked enough times to break
+				if tile_clicks[tile_pos] * Global.damage >= 160:
+					Global.tile_money = 16
+					# Tile has been clicked enough times, remove it and reward money
+					erase_cell(0, tile_pos)
+					Global.money += money_for_break * Global.money_multiplier * Global.tile_money
+					# Reset the click counter for this tile position
+					tile_clicks.erase(tile_pos)
+					# Add 1 to Global.blocks when a tile is broken
+					Global.blocks += 1
+					Global.silver_ore_amount += 1
+					
+			if tile_source_id == 4:
+				# Tile exists, handle clicks
+				if tile_pos in tile_clicks:
+					tile_clicks[tile_pos] += 1
+				else:
+					tile_clicks[tile_pos] = 1
+
+				# Debug print
+				print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
+				get_parent().breaking()
+				# Check if the tile has been clicked enough times to break
+				if tile_clicks[tile_pos] * Global.damage >= 240:
+					Global.tile_money = 30
+					# Tile has been clicked enough times, remove it and reward money
+					erase_cell(0, tile_pos)
+					Global.money += money_for_break * Global.money_multiplier * Global.tile_money
+					# Reset the click counter for this tile position
+					tile_clicks.erase(tile_pos)
+					# Add 1 to Global.blocks when a tile is broken
+					Global.blocks += 1
+					Global.gold_ore_amount += 1
+					
+			if tile_source_id == 5:
+				# Tile exists, handle clicks
+				if tile_pos in tile_clicks:
+					tile_clicks[tile_pos] += 1
+				else:
+					tile_clicks[tile_pos] = 1
+
+				# Debug print
+				print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
+				get_parent().breaking()
+				# Check if the tile has been clicked enough times to break
+				if tile_clicks[tile_pos] * Global.damage >= 640:
+					Global.tile_money = 60
+					# Tile has been clicked enough times, remove it and reward money
+					erase_cell(0, tile_pos)
+					Global.money += money_for_break * Global.money_multiplier * Global.tile_money
+					# Reset the click counter for this tile position
+					tile_clicks.erase(tile_pos)
+					# Add 1 to Global.blocks when a tile is broken
+					Global.blocks += 1
+					Global.amethyst_ore_amount += 1
+					
+			if tile_source_id == 6:
+				# Tile exists, handle clicks
+				if tile_pos in tile_clicks:
+					tile_clicks[tile_pos] += 1
+				else:
+					tile_clicks[tile_pos] = 1
+
+				# Debug print
+				print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
+				get_parent().breaking()
+				# Check if the tile has been clicked enough times to break
+				if tile_clicks[tile_pos] * Global.damage >= 800:
+					Global.tile_money = 90
+					# Tile has been clicked enough times, remove it and reward money
+					erase_cell(0, tile_pos)
+					Global.money += money_for_break * Global.money_multiplier * Global.tile_money
+					# Reset the click counter for this tile position
+					tile_clicks.erase(tile_pos)
+					# Add 1 to Global.blocks when a tile is broken
+					Global.blocks += 1
+					Global.sapphire_ore_amount += 1
+					
+			if tile_source_id == 7:
+				# Tile exists, handle clicks
+				if tile_pos in tile_clicks:
+					tile_clicks[tile_pos] += 1
+				else:
+					tile_clicks[tile_pos] = 1
+
+				# Debug print
+				print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
+				get_parent().breaking()
+				# Check if the tile has been clicked enough times to break
+				if tile_clicks[tile_pos] * Global.damage >= 960:
+					Global.tile_money = 120
+					# Tile has been clicked enough times, remove it and reward money
+					erase_cell(0, tile_pos)
+					Global.money += money_for_break * Global.money_multiplier * Global.tile_money
+					# Reset the click counter for this tile position
+					tile_clicks.erase(tile_pos)
+					# Add 1 to Global.blocks when a tile is broken
+					Global.blocks += 1
+					Global.emerald_ore_amount += 1
+					
+			if tile_source_id == 8:
+					# Tile exists, handle clicks
+					if tile_pos in tile_clicks:
+						tile_clicks[tile_pos] += 1
+					else:
+						tile_clicks[tile_pos] = 1
+
+					# Debug print
+					print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
+					get_parent().breaking()
+					# Check if the tile has been clicked enough times to break
+					if tile_clicks[tile_pos] * Global.damage >= 1120:
+						Global.tile_money = 150
+						# Tile has been clicked enough times, remove it and reward money
+						erase_cell(0, tile_pos)
+						Global.money += money_for_break * Global.money_multiplier * Global.tile_money
+						# Reset the click counter for this tile position
+						tile_clicks.erase(tile_pos)
+						# Add 1 to Global.blocks when a tile is broken
+						Global.blocks += 1
+						Global.ruby_ore_amount += 1
+						
+			if tile_source_id == 9:
+					# Tile exists, handle clicks
+					if tile_pos in tile_clicks:
+						tile_clicks[tile_pos] += 1
+					else:
+						tile_clicks[tile_pos] = 1
+
+					# Debug print
+					print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
+					get_parent().breaking()
+					# Check if the tile has been clicked enough times to break
+					if tile_clicks[tile_pos] * Global.damage >= 2000:
+						Global.tile_money = 400
+						# Tile has been clicked enough times, remove it and reward money
+						erase_cell(0, tile_pos)
+						Global.money += money_for_break * Global.money_multiplier * Global.tile_money
+						# Reset the click counter for this tile position
+						tile_clicks.erase(tile_pos)
+						# Add 1 to Global.blocks when a tile is broken
+						Global.blocks += 1
+						Global.diamond_ore_amount += 1

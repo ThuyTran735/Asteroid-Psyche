@@ -33,51 +33,52 @@ func _ready():
 	$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _physics_process(delta):
-	if Global.item_main == 6:
-		$Laser.width = widthy
+	if $"../Billy/Control/Information Menu".visible == false:
+		if Global.item_main == 6:
+			$Laser.width = widthy
 
-		# Determine laser offset based on character facing direction
-		if animated_sprite_2d.flip_h:
-			laser_offset = -7
-		else:
-			laser_offset = 7
+			# Determine laser offset based on character facing direction
+			if animated_sprite_2d.flip_h:
+				laser_offset = -7
+			else:
+				laser_offset = 7
 
-		if $Laser.visible:
-			# Laser is visible, do not update its position
-			# Keep the laser in place based on its stored start and end positions
-			$Laser.set_point_position(0, $Laser.to_local(laser_start_position))
-			$Laser.set_point_position(1, $Laser.to_local(laser_end_position))
-		else:
-			# Calculate and update the laser's position when it is not visible
-			var laser_base_position = global_position + Vector2(laser_offset, -3.5)
-			$Laser.global_position = laser_base_position
+			if $Laser.visible:
+				# Laser is visible, do not update its position
+				# Keep the laser in place based on its stored start and end positions
+				$Laser.set_point_position(0, $Laser.to_local(laser_start_position))
+				$Laser.set_point_position(1, $Laser.to_local(laser_end_position))
+			else:
+				# Calculate and update the laser's position when it is not visible
+				var laser_base_position = global_position + Vector2(laser_offset, -3.5)
+				$Laser.global_position = laser_base_position
 
-			# Get the mouse position
-			var mouse_position = get_global_mouse_position()
+				# Get the mouse position
+				var mouse_position = get_global_mouse_position()
 
-			# Calculate the laser direction and distance
-			var laser_direction = (mouse_position - laser_base_position).normalized()
-			var laser_distance = min((mouse_position - laser_base_position).length(), max_range)
+				# Calculate the laser direction and distance
+				var laser_direction = (mouse_position - laser_base_position).normalized()
+				var laser_distance = min((mouse_position - laser_base_position).length(), max_range)
 
-			# Set the laser end point
-			laser_end_position = laser_base_position + laser_direction * laser_distance
+				# Set the laser end point
+				laser_end_position = laser_base_position + laser_direction * laser_distance
 
-			# Update laser points
-			$Laser.set_point_position(0, $Laser.to_local(laser_base_position))
-			$Laser.set_point_position(1, $Laser.to_local(laser_end_position))
+				# Update laser points
+				$Laser.set_point_position(0, $Laser.to_local(laser_base_position))
+				$Laser.set_point_position(1, $Laser.to_local(laser_end_position))
 
-		if Input.is_action_just_pressed("mb_left"):
-			# Calculate and store laser positions
-			laser_start_position = global_position + Vector2(laser_offset, -3.5)
-			var mouse_position = get_global_mouse_position()
-			var laser_direction = (mouse_position - laser_start_position).normalized()
-			var laser_distance = min((mouse_position - laser_start_position).length(), max_range)
-			laser_end_position = laser_start_position + laser_direction * laser_distance
+			if Input.is_action_just_pressed("mb_left"):
+				# Calculate and store laser positions
+				laser_start_position = global_position + Vector2(laser_offset, -3.5)
+				var mouse_position = get_global_mouse_position()
+				var laser_direction = (mouse_position - laser_start_position).normalized()
+				var laser_distance = min((mouse_position - laser_start_position).length(), max_range)
+				laser_end_position = laser_start_position + laser_direction * laser_distance
 
-			# Set the laser visible when the button is pressed
-			$Laser.visible = true
-			# Start the timer
-			laser_timer.start()
+				# Set the laser visible when the button is pressed
+				$Laser.visible = true
+				# Start the timer
+				laser_timer.start()
 
 	# Handle jumping and movement
 	if not is_on_floor():
