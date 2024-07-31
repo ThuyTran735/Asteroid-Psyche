@@ -140,3 +140,10 @@ func swap_item_forward():
 func buy():
 	Global.money -= price
 	update_shop_ui()
+	sound()
+func sound():
+	var audio_player = $purchase
+	var audio_stream2 = load("res://Assets/Audio/shop/bassattack.ogg")
+	audio_player.stream = audio_stream2
+	audio_player.play()
+	

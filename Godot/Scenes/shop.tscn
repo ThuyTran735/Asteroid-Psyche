@@ -66,5 +66,7 @@ shape = SubResource("CircleShape2D_8odvn")
 position = Vector2(-30, -54)
 scale = Vector2(0.2, 0.2)
 
+[node name="ShopAudio" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

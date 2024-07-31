@@ -9,6 +9,7 @@ var tile_clicks := {}
 func _process(delta):
 	# Check if left mouse button is pressed
 	if Input.is_action_just_pressed("mb_left"):
+		
 		var mouse_pos: Vector2 = get_global_mouse_position()
 		var tile_pos: Vector2 = local_to_map(mouse_pos)
 
@@ -20,12 +21,14 @@ func _process(delta):
 			# Tile exists, handle clicks
 			if tile_pos in tile_clicks:
 				tile_clicks[tile_pos] += 1
+				get_parent().breaking()
 			else:
 				tile_clicks[tile_pos] = 1
+				
 
 			# Debug print
 			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-
+			get_parent().breaking()
 			# Check if the tile has been clicked enough times to break
 			if tile_clicks[tile_pos] * Global.damage >= 2:
 				Global.tile_money = 1

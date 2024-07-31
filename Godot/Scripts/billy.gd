@@ -156,7 +156,9 @@ func _physics_process(delta):
 				animated_sprite_2d.play("mine_laser_drill")
 
 	move_and_slide()
-
+	if $IwonderWhatThisDoes.playing == false:
+		$IwonderWhatThisDoes.play()
+		
 func _on_laser_timer_timeout():
 	# Hide the laser when the timer times out
 	$Laser.visible = false
@@ -168,3 +170,5 @@ func player_sell_method():
 func player_shop_method():
 	# Placeholder for player shop logic
 	pass
+
+

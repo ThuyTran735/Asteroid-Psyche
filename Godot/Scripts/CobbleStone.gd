@@ -45,6 +45,7 @@ func _process(_delta):
 				set_cell(ZERO, tile, ZERO, Vector2i.ZERO)  # Use to place the tile
 				Global.blocks -= 1
 				print("Placed cobblestone tile at: ", tile)
+				get_parent().place()
 			else:
 				print("Cannot place tile: Tile already exists or no blocks available.")
 
@@ -57,4 +58,5 @@ func _process(_delta):
 
 		if tile_data != null:
 			erase_cell(0, tile)
+			get_parent().breaking()
 			Global.blocks += 1  # Add a block when a tile is broken

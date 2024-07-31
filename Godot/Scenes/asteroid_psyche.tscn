@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bnoferxl2wl4t"]
+[gd_scene load_steps=64 format=3 uid="uid://bnoferxl2wl4t"]
 
 [ext_resource type="PackedScene" uid="uid://bk044ya3dinr1" path="res://Scenes/billy.tscn" id="1_75q7w"]
 [ext_resource type="Script" path="res://Scripts/asteroid_psyche.gd" id="1_nudaw"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://clqm7btw556h1" path="res://Scenes/copper_ore_info_card.tscn" id="30_usvwu"]
 [ext_resource type="PackedScene" uid="uid://cln6fd5amimgs" path="res://Scenes/silver_ore_info_card.tscn" id="31_d2nqv"]
 [ext_resource type="PackedScene" uid="uid://etr1i3v7aqdh" path="res://Scenes/ui_.tscn" id="34_g7wry"]
+[ext_resource type="AudioStream" uid="uid://cctd7lgvwujif" path="res://Assets/Audio/Honeylune_Ridge.mp3" id="35_8kxrm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebv2p"]
 texture = ExtResource("9_6nwww")
@@ -365,3 +366,8 @@ zoom = Vector2(6, 6)
 position_smoothing_speed = 3.0
 
 [node name="Inv_Ui" parent="Billy" instance=ExtResource("34_g7wry")]
+
+[node name="IwonderWhatThisDoes" type="AudioStreamPlayer" parent="Billy"]
+stream = ExtResource("35_8kxrm")
+
+[node name="block" type="AudioStreamPlayer" parent="."]

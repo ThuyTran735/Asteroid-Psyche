@@ -152,7 +152,7 @@ func _process(_delta):
 
 			# Debug print
 			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-
+			get_parent().breaking()
 			# Check if the tile has been clicked enough times to break
 			if tile_clicks[tile_pos] * Global.damage >= 2:
 				Global.tile_money = 1
@@ -173,7 +173,7 @@ func _process(_delta):
 
 			# Debug print
 			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-
+			get_parent().breaking()
 			# Check if the tile has been clicked enough times to break
 			if tile_clicks[tile_pos] * Global.damage >= 6:
 				Global.tile_money = 5
@@ -195,7 +195,7 @@ func _process(_delta):
 
 			# Debug print
 			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-
+			get_parent().breaking()
 			# Check if the tile has been clicked enough times to break
 			if tile_clicks[tile_pos] * Global.damage >= 4:
 				Global.tile_money = 3
@@ -217,7 +217,7 @@ func _process(_delta):
 
 			# Debug print
 			print("Tile position: ", tile_pos, " Click count: ", tile_clicks[tile_pos])
-
+			get_parent().breaking()
 			# Check if the tile has been clicked enough times to break
 			if tile_clicks[tile_pos] * Global.damage >= 16:
 				Global.tile_money = 8

@@ -32,7 +32,18 @@ func _process(_delta):
 	
 func _on_area_2d_body_entered(body):
 	if body.has_method("player_shop_method"):
+		var audio_player = $ShopAudio
+		var audio_stream1 = load("res://Assets/Audio/shop/bd.ogg")
 		$shopmenu.visible = true
+		audio_player.stream = audio_stream1
+		audio_player.play()
 
 func _on_area_2d_body_exited(body):
+	var audio_player = $ShopAudio
+	var audio_stream1 = load("res://Assets/Audio/shop/bd.ogg")
 	$shopmenu.visible = false
+	audio_player.stream = audio_stream1
+	audio_player.play()
+	
+
+

@@ -148,6 +148,8 @@ offset_bottom = 142.0
 text = "Buy"
 metadata/_edit_use_anchors_ = true
 
+[node name="purchase" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="ButtonLeft" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="ButtonRight" to="." method="_on_button_right_pressed"]
 [connection signal="pressed" from="ButtonBuy" to="." method="_on_button_buy_pressed"]
