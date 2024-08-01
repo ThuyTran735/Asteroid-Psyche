@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://bnoferxl2wl4t"]
+[gd_scene load_steps=102 format=3 uid="uid://bnoferxl2wl4t"]
 
 [ext_resource type="PackedScene" uid="uid://bk044ya3dinr1" path="res://Scenes/billy.tscn" id="1_75q7w"]
 [ext_resource type="Script" path="res://Scripts/asteroid_psyche.gd" id="1_nudaw"]
@@ -59,7 +59,6 @@
 [ext_resource type="Script" path="res://Scenes/RichTextLabel.gd" id="55_jl1qn"]
 [ext_resource type="Script" path="res://Scenes/ColorRect.gd" id="58_veyep"]
 [ext_resource type="Script" path="res://Scenes/final_time.gd" id="59_1ib06"]
-[ext_resource type="Texture2D" uid="uid://jl1ar6vi0wim" path="res://Assets/logo.png" id="60_tap11"]
 
 [sub_resource type="TileSet" id="TileSet_s2685"]
 tile_size = Vector2i(10, 10)
@@ -463,68 +462,6 @@ position = Vector2(59, 0)
 [node name="Billy" parent="." instance=ExtResource("1_75q7w")]
 position = Vector2(0, 0)
 
-[node name="GameOverScreen" type="Control" parent="Billy"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -103.0
-offset_top = -57.0
-offset_right = 105.0
-offset_bottom = 51.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Billy/GameOverScreen"]
-layout_mode = 0
-offset_right = 194.0
-offset_bottom = 108.0
-color = Color(0, 0, 0, 1)
-script = ExtResource("58_veyep")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Billy/GameOverScreen/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.992
-offset_left = 14.0
-offset_top = 7.0
-offset_right = -42.0
-offset_bottom = 52.864
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.7, 0.7)
-text = "You have completed Asteroid Psyche! Congrats your time was "
-script = ExtResource("59_1ib06")
-
-[node name="TextureRect" type="TextureRect" parent="Billy/GameOverScreen/ColorRect"]
-layout_mode = 0
-offset_left = 104.0
-offset_top = 5.0
-offset_right = 195.0
-offset_bottom = 103.0
-texture = ExtResource("60_tap11")
-expand_mode = 5
-
-[node name="Button" type="Button" parent="Billy/GameOverScreen"]
-layout_mode = 0
-offset_left = 171.0
-offset_top = 1.0
-offset_right = 208.0
-offset_bottom = 32.0
-scale = Vector2(0.5, 0.5)
-text = "Exit"
-
-[node name="Button2" type="Button" parent="Billy/GameOverScreen"]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 1.0
-offset_right = 168.0
-offset_bottom = 32.0
-scale = Vector2(0.5, 0.5)
-text = "Play Again"
-
 [node name="Control" type="Control" parent="Billy"]
 clip_children = 2
 layout_direction = 2
@@ -653,7 +590,28 @@ volume_db = -19.675
 
 [node name="block" type="AudioStreamPlayer" parent="."]
 
-[connection signal="pressed" from="Billy/GameOverScreen/Button" to="Billy" method="_on_button_pressed"]
-[connection signal="pressed" from="Billy/GameOverScreen/Button2" to="Billy" method="_on_button_2_pressed"]
+[node name="GameOverScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -57.0
+offset_right = 95.0
+offset_bottom = 51.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("58_veyep")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOverScreen/ColorRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 110.0
+offset_bottom = 100.0
+text = "You have completed Asteroid Psyche! Congrats your time was "
+script = ExtResource("59_1ib06")
+
 [connection signal="pressed" from="Billy/Control/Information" to="Billy/Control/Information Menu" method="_on_information_pressed"]
 [connection signal="timeout" from="Billy/Control/timer/Timer" to="Billy/Control/timer" method="_on_timer_timeout"]

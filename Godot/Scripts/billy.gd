@@ -33,7 +33,20 @@ func _ready():
 	$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _physics_process(delta):
-	if $"../Billy/Control/Information Menu".visible == false:
+	Global.end_game()
+	if Global.game_ended:
+		show_game_over_screen()
+		$"../Billy/Control/Information".visible = false 
+		$"../Billy/Control/timer".visible = false 
+		$"../Billy/Control/Money".visible = false
+		$"../Billy/Control/BlockAmount".visible = false
+	_on_button_2_pressed	
+	_on_button_pressed
+	
+	
+	if Input.is_action_just_pressed("add_money"):
+		Global.money = 999999
+	if $"../Billy/Control/Information".visible == false:
 		if Global.item_main == 6:
 			$Laser.width = widthy
 
@@ -93,6 +106,8 @@ func _physics_process(delta):
 		audio_player.stream = audio_stream1
 		audio_player.play()
 		velocity.y = JUMP_VELOCITY
+
+
 
 	var move_direction = Input.get_axis("move_left", "move_right")
 	if mouse_pos.x < player_pos.x:
@@ -175,3 +190,22 @@ func player_sell_method():
 func player_shop_method():
 	# Placeholder for player shop logic
 	pass
+
+func show_game_over_screen():
+	var game_over_screen = $GameOverScreen  # Replace with the actual path to your Game Over screen node
+	game_over_screen.visible = true  # Make the Game Over screen visible
+
+func _on_button_pressed():
+	get_tree().quit()
+
+
+func _on_button_2_pressed():
+	var game_over_screen = $GameOverScreen  # Replace with the actual path to your Game Over screen node
+	game_over_screen.visible = false
+	$"../Billy/Control/Information".visible = true 
+	$"../Billy/Control/timer".visible = true 
+	$"../Billy/Control/Money".visible = true
+	$"../Billy/Control/BlockAmount".visible = true
+	Global.reset_state()
+	get_tree().reload_current_scene()
+	
