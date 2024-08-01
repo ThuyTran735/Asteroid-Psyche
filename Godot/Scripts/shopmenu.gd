@@ -145,5 +145,6 @@ func sound():
 	var audio_player = $purchase
 	var audio_stream2 = load("res://Assets/Audio/shop/bassattack.ogg")
 	audio_player.stream = audio_stream2
+	audio_player.volume_db = Global.volume - 15
 	audio_player.play()
 	

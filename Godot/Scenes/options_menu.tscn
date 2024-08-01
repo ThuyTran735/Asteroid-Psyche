@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn76bkh7qa6pr"]
+
+[ext_resource type="Script" path="res://Scripts/Options Menu.gd" id="1_16a1f"]
+[ext_resource type="AudioStream" uid="uid://cm5o2qa6w045l" path="res://Assets/Audio/blocks/break/gravel1.ogg" id="2_h21n4"]
+
+[node name="Options Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_16a1f")
+
+[node name="Options_Text" type="Label" parent="."]
+layout_mode = 2
+offset_left = 38.0
+offset_top = 7.0
+offset_right = 1238.0
+offset_bottom = 30.0
+scale = Vector2(1.5, 1.5)
+text = "Options:"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Volume_Text" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="Volume" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 20.0
+value = 1.0
+
+[node name="Mute_Text" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mute Game"
+
+[node name="Mute" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Resolutions_Text" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="Resolutions" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+item_count = 3
+selected = 2
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_h21n4")
+
+[node name="Back Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1182.0
+offset_top = 646.0
+offset_right = 1227.0
+offset_bottom = 677.0
+scale = Vector2(1.3, 1.3)
+text = "Back"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Mute" to="." method="_on_mute_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Resolutions" to="." method="_on_resolutions_item_selected"]
+[connection signal="pressed" from="Back Button" to="." method="_on_back_button_pressed"]

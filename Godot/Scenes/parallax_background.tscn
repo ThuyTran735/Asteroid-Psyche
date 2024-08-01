@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://chvj1d7lyfxl3"]
+
+[ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="1_04oob"]
+[ext_resource type="Texture2D" uid="uid://bqqjv0eur32a2" path="res://Assets/Tiles/Background/space 6000 x 3000.png" id="2_y3t8l"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_04oob")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+modulate = Color(1.1, 1.1, 1.1, 1)
+light_mask = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+modulate = Color(1.1, 1.1, 1.1, 1)
+position = Vector2(42, -40)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_y3t8l")

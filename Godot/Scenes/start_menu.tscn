@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://bijqe4cjiww2v"]
+
+[ext_resource type="Script" path="res://Scripts/Start Menu.gd" id="1_n3pxo"]
+[ext_resource type="Texture2D" uid="uid://dnrbmvwpn3pau" path="res://Assets/logo.png" id="2_jgqeg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ixefo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jgqeg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Start Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n3pxo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 250.0
+offset_right = 400.0
+offset_bottom = 351.0
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play Game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Options Game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit Game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(991, 348)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_ixefo")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play Game" to="." method="_on_play_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options Game" to="." method="_on_options_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
