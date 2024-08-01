@@ -10,7 +10,6 @@ var widthy = based_width
 var laser_offset = 5
 var laser_start_position: Vector2
 var laser_end_position: Vector2
-
 @onready var LaserDrillMarker = $LaserDrillMarker
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
@@ -34,7 +33,20 @@ func _ready():
 	$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _physics_process(delta):
-	if $"Control/Settings Menu".visible == false:
+	Global.end_game()
+	if Global.game_ended:
+		show_game_over_screen()
+		Global.information_menu_exit_button = 1
+		$"../Billy/Control/timer".visible = false 
+		$"../Billy/Control/Money".visible = false
+		$"../Billy/Control/BlockAmount".visible = false
+	_on_button_2_pressed	
+	_on_button_pressed
+	
+	
+	if Input.is_action_just_pressed("add_money"):
+		Global.money = 999999
+	if $"../Billy/Control/Information".visible == false:
 		if Global.item_main == 6:
 			$Laser.width = widthy
 
@@ -92,9 +104,10 @@ func _physics_process(delta):
 		var audio_player = $jump
 		var audio_stream1 = load("res://Assets/Audio/jump.mp3")
 		audio_player.stream = audio_stream1
-		audio_player.volume_db = Global.volume - 35
 		audio_player.play()
 		velocity.y = JUMP_VELOCITY
+
+
 
 	var move_direction = Input.get_axis("move_left", "move_right")
 	if mouse_pos.x < player_pos.x:
@@ -161,19 +174,9 @@ func _physics_process(delta):
 				animated_sprite_2d.play("mine_large_drill")
 			6:
 				animated_sprite_2d.play("mine_laser_drill")
-				
-	if Global.talked_to_tut_alien2 == 0:
-		if Input.is_action_just_pressed("dialogue_accept"):
-			DialogueManager.show_dialogue_balloon(load("res://Dialogues/main.dialogue"), "start")
-			
-	if Global.talked_to_tut_alien2 == 1:
-		$"../Border/StaticBody2D/CollisionShape2D5".disabled = true
-		$"../Border/StaticBody2D/CollisionShape2D6".disabled = true
-		$"../Border/StaticBody2D/CollisionShape2D7".disabled = true
 
 	move_and_slide()
 	if $IwonderWhatThisDoes.playing == false:
-		$IwonderWhatThisDoes.volume_db = Global.volume - 40
 		$IwonderWhatThisDoes.play()
 		
 func _on_laser_timer_timeout():
@@ -188,5 +191,21 @@ func player_shop_method():
 	# Placeholder for player shop logic
 	pass
 
-func alien_method():
-	pass
+func show_game_over_screen():
+	var game_over_screen = $GameOverScreen  # Replace with the actual path to your Game Over screen node
+	game_over_screen.visible = true  # Make the Game Over screen visible
+
+func _on_button_pressed():
+	get_tree().quit()
+
+
+func _on_button_2_pressed():
+	var game_over_screen = $GameOverScreen  # Replace with the actual path to your Game Over screen node
+	game_over_screen.visible = false
+	$"../Billy/Control/Information".visible = true 
+	$"../Billy/Control/timer".visible = true 
+	$"../Billy/Control/Money".visible = true
+	$"../Billy/Control/BlockAmount".visible = true
+	Global.reset_state()
+	get_tree().reload_current_scene()
+	
