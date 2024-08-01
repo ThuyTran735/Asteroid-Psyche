@@ -631,7 +631,7 @@ script = ExtResource("55_jl1qn")
 autostart = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Billy"]
-position = Vector2(-31, 7)
+position = Vector2(0, -3)
 energy = 0.5
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_bl5lk")

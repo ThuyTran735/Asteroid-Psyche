@@ -13,6 +13,9 @@ func _process(delta):
 	if Global.information_menu_exit_button == 0:
 		button.visible = true
 		target_control.visible = false
+	if Global.information_menu_exit_button == 1:
+		button.visible = false
+		target_control.visible = false
 
 # Method to handle button press
 func _on_information_pressed():

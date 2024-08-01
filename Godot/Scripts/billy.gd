@@ -36,7 +36,7 @@ func _physics_process(delta):
 	Global.end_game()
 	if Global.game_ended:
 		show_game_over_screen()
-		$"../Billy/Control/Information".visible = false 
+		Global.information_menu_exit_button = 1
 		$"../Billy/Control/timer".visible = false 
 		$"../Billy/Control/Money".visible = false
 		$"../Billy/Control/BlockAmount".visible = false
