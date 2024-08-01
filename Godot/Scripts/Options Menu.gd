@@ -4,9 +4,8 @@ func _ready():
 	load_settings()
 
 func _on_volume_value_changed(value):
-	Global.volume = value / 2
-	Global.volume = Global.volume / 2
-	AudioServer.set_bus_volume_db(0, value)
+	Global.volume = value
+	AudioServer.set_bus_volume_db(0, Global.volume)
 	$AudioStreamPlayer2D.play()
 	save_settings()  # Save settings after changing volume
 
