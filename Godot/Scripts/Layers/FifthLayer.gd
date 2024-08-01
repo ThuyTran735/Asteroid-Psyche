@@ -7,7 +7,7 @@ var money_for_break: int = 1
 var tile_clicks := {}
 
 func _process(delta):
-	if $"../Billy/Control/Information Menu".visible == false:
+	if $"../Billy/Control/Settings Menu".visible == false:
 		# Check if left mouse button is pressed
 		if Input.is_action_just_pressed("mb_left"):
 			var mouse_pos: Vector2 = get_global_mouse_position()

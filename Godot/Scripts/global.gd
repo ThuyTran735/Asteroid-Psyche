@@ -28,6 +28,16 @@ var volume = 0
 var item_main = 0 # Tool type
 var damage = 1 # Tool damage
 
-var information_menu_exit_button = 0
+var back_button = 0
+var quit_button = 0
+
+var previous_scene = 0
+
+signal alien_signal
+var talked_to_tut_alien2 = 0
+func _ready():
+	alien_signal.connect(talked_to_tut_alien1)
+func talked_to_tut_alien1(v):
+	talked_to_tut_alien2 = 1
 
 var money_multiplier = 1 # Money gets multiplied with the tile money

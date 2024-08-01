@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://chriqrt1budwu"]
+
+[ext_resource type="Texture2D" uid="uid://qlkbohfx0a6t" path="res://Assets/alien wet paint.png" id="1_lh7md"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pji8e"]
+atlas = ExtResource("1_lh7md")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kbdo"]
+atlas = ExtResource("1_lh7md")
+region = Rect2(10, 0, 10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j4hq5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pji8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kbdo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="Wet Paint Alien" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_j4hq5")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.975641

@@ -1,0 +1,13 @@
+~ start
+
+???: Welcome to Psyche! My name is Wet Paint Alien.
+Wet Paint Alien: Psyche is one of the most intriguing objects in our solar system, believed to be the exposed core of an ancient planetesimal.
+Wet Paint Alien: It was discovered in 1852 by Italian astronomer Annibale de Gasparis and is located in the asteroid belt between Mars and Jupiter. It has an estimated diameter of 226 kilometers.
+Wet Paint Alien: Psyche is unique due to its high metallic content, mainly consisting of iron and nickel.
+Wet Paint Alien: You were sent here by NASA to study the asteroid up close and to help provide insights into the building blocks of planet formation.
+Wet Paint Alien: Studying Psyche helps scientists understand planetary cores, as it may represent a similar structure to the core of Earth.
+Wet Paint Alien: To dig, left click. To place a block, right click. Walk to the right to find a shop that sells tools.
+Wet Paint Alien: Good luck have fun!
+do emit("alien_signal", "signal emitted")
+
+=> END

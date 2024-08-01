@@ -1,0 +1,177 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxdq7u2khk80l"]
+
+[ext_resource type="Script" path="res://Scripts/settings_menu.gd" id="1_p402j"]
+[ext_resource type="Script" path="res://Scripts/Main UI.gd" id="2_rjpmo"]
+[ext_resource type="Script" path="res://Scripts/Quit Confirm.gd" id="3_m0774"]
+[ext_resource type="Script" path="res://Scripts/Credits UI.gd" id="4_8eph3"]
+
+[node name="Settings Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_p402j")
+
+[node name="Main UI" type="ColorRect" parent="."]
+light_mask = 0
+layout_mode = 0
+offset_right = 266.0
+offset_bottom = 193.0
+color = Color(0.172549, 0.172549, 0.172549, 0.94902)
+script = ExtResource("2_rjpmo")
+
+[node name="Paused Text" type="RichTextLabel" parent="Main UI"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 208.0
+offset_right = 166.0
+offset_bottom = 229.0
+scale = Vector2(1.5, 1.5)
+text = "Game is Paused"
+scroll_active = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 255.0
+offset_bottom = 147.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Information Cards" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Information Cards"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+text = "Quit"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="Quit Confirm" type="ColorRect" parent="."]
+process_mode = 2
+light_mask = 0
+layout_mode = 0
+offset_top = 38.0
+offset_right = 266.0
+offset_bottom = 122.0
+color = Color(0.172549, 0.172549, 0.172549, 0.94902)
+script = ExtResource("3_m0774")
+
+[node name="Quit Confirm Text" type="RichTextLabel" parent="Quit Confirm"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 176.0
+offset_bottom = 29.0
+scale = Vector2(1.5, 1.5)
+text = "Do You Want To Quit?"
+scroll_active = false
+
+[node name="Paused Text2" type="RichTextLabel" parent="Quit Confirm"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 170.0
+offset_right = 166.0
+offset_bottom = 191.0
+scale = Vector2(1.5, 1.5)
+text = "Game is Paused"
+scroll_active = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+process_mode = 2
+layout_mode = 0
+offset_left = 12.0
+offset_top = 81.0
+offset_right = 254.0
+offset_bottom = 112.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="Yes" type="Button" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="Cancel" type="Button" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel"
+
+[node name="Credits UI" type="ColorRect" parent="."]
+process_mode = 2
+light_mask = 0
+layout_mode = 0
+offset_left = -68.0
+offset_top = 1.0
+offset_right = 334.0
+offset_bottom = 248.0
+color = Color(0.172549, 0.172549, 0.172549, 0.94902)
+script = ExtResource("4_8eph3")
+
+[node name="Back2" type="Button" parent="Credits UI"]
+layout_mode = 2
+offset_left = 79.0
+offset_top = 203.0
+offset_right = 323.0
+offset_bottom = 234.0
+text = "Back"
+
+[node name="Names" type="RichTextLabel" parent="Credits UI"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 53.0
+offset_right = 265.0
+offset_bottom = 149.0
+scale = Vector2(1.5, 1.5)
+focus_mode = 2
+text = "Coder - Thuy
+Coder - Mason
+Coder - Alex
+Moral Support Person - Gabriel"
+selection_enabled = true
+
+[node name="Credits" type="RichTextLabel" parent="Credits UI"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 8.0
+offset_right = 86.0
+offset_bottom = 30.0
+scale = Vector2(2, 2)
+focus_mode = 2
+bbcode_enabled = true
+text = "[u]Credits: [/u]"
+scroll_active = false
+selection_enabled = true
+
+[node name="Paused Text" type="RichTextLabel" parent="Credits UI"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 274.0
+offset_right = 234.0
+offset_bottom = 295.0
+scale = Vector2(1.5, 1.5)
+text = "Game is Paused"
+scroll_active = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="Main UI" method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="Credits UI" method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="Quit Confirm" method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="Main UI" method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/Yes" to="Quit Confirm" method="_on_yes_pressed"]
+[connection signal="pressed" from="MarginContainer2/HBoxContainer/Cancel" to="Quit Confirm" method="_on_cancel_pressed"]
+[connection signal="pressed" from="Credits UI/Back2" to="Credits UI" method="_on_back_2_pressed"]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/billy.gd" id="1_kd88v"]
 [ext_resource type="Texture2D" uid="uid://d351tg5im533y" path="res://Assets/Billy/Billy Basic/billy_basic_idle.png" id="2_1mlnx"]
 [ext_resource type="Texture2D" uid="uid://dqpi4k5i4crgc" path="res://Assets/Billy/Billy Basic Pickaxe/billy_basic_pickaxe_idle.png" id="3_qauj1"]
-[ext_resource type="Texture2D" uid="uid://c14qgrxqum2kr" path="res://Assets/Billy/Billy Basic Shovel/billy_basic_shovel_idle.png" id="4_grysb"]
+[ext_resource type="Texture2D" uid="uid://c14qgrxqum2kr" path="res://Assets/billy_basic_shovel.png" id="4_grysb"]
 [ext_resource type="Texture2D" uid="uid://xis361ekjv13" path="res://Assets/Billy/Billy Large Drill/billy_large_drill_idle.png" id="5_8v1id"]
 [ext_resource type="Texture2D" uid="uid://dtse6pkl18doc" path="res://Assets/Billy/Billy Medium Drill/billy_medium_drill_idle.png" id="5_e3dwi"]
 [ext_resource type="Texture2D" uid="uid://bbsghg7rg506p" path="res://Assets/Billy/Billy Basic Shovel/billy_basic_shovel_mine_1st_frame.png" id="5_paa4n"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dgk302ftf8bs2" path="res://Assets/Billy/Billy Laser Drill/billy_laser_drill_mine.png" id="14_lthk7"]
 [ext_resource type="Texture2D" uid="uid://c5ot7udwh5rbo" path="res://Assets/Billy/Billy Basic/billy_basic_walk.png" id="15_djlvj"]
 [ext_resource type="Texture2D" uid="uid://c14a1c4my3myn" path="res://Assets/Billy/Billy Medium Drill/billy_medium_drill_walk.png" id="16_o1dyh"]
-[ext_resource type="Texture2D" uid="uid://b4lfuhxqrld27" path="res://Assets/Billy/Billy Basic Shovel/billy_basic_shovel_walk.png" id="17_8pwjr"]
+[ext_resource type="Texture2D" uid="uid://b4lfuhxqrld27" path="res://Assets/billy_basic_shovel_walk.png" id="17_8pwjr"]
 [ext_resource type="Texture2D" uid="uid://box6sq62skrcl" path="res://Assets/Billy/Billy Large Drill/billy_large_drill_walk.png" id="18_yv8gp"]
 [ext_resource type="Texture2D" uid="uid://b1iw41tcclom1" path="res://Assets/Billy/Billy Laser Drill/billy_laser_drill_.png" id="21_hvbjb"]
 

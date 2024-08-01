@@ -10,6 +10,7 @@ var widthy = based_width
 var laser_offset = 5
 var laser_start_position: Vector2
 var laser_end_position: Vector2
+
 @onready var LaserDrillMarker = $LaserDrillMarker
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
@@ -33,7 +34,7 @@ func _ready():
 	$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _physics_process(delta):
-	if $"../Billy/Control/Information Menu".visible == false:
+	if $"Control/Settings Menu".visible == false:
 		if Global.item_main == 6:
 			$Laser.width = widthy
 
@@ -160,6 +161,15 @@ func _physics_process(delta):
 				animated_sprite_2d.play("mine_large_drill")
 			6:
 				animated_sprite_2d.play("mine_laser_drill")
+				
+	if Global.talked_to_tut_alien2 == 0:
+		if Input.is_action_just_pressed("dialogue_accept"):
+			DialogueManager.show_dialogue_balloon(load("res://Dialogues/main.dialogue"), "start")
+			
+	if Global.talked_to_tut_alien2 == 1:
+		$"../Border/StaticBody2D/CollisionShape2D5".disabled = true
+		$"../Border/StaticBody2D/CollisionShape2D6".disabled = true
+		$"../Border/StaticBody2D/CollisionShape2D7".disabled = true
 
 	move_and_slide()
 	if $IwonderWhatThisDoes.playing == false:
@@ -176,4 +186,7 @@ func player_sell_method():
 
 func player_shop_method():
 	# Placeholder for player shop logic
+	pass
+
+func alien_method():
 	pass

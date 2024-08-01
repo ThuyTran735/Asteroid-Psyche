@@ -294,7 +294,7 @@ func _ready() -> void:
 					set_cell(0, Vector2i(x, y), 9, Vector2i(0, 0))  # Replace ID with 8 for diamond ore
 					
 func _process(delta):
-	if $"../Billy/Control/Information Menu".visible == false:
+	if $"../Billy/Control/Settings Menu".visible == false:
 		# Check if left mouse button is pressed
 		if Input.is_action_just_pressed("mb_left"):
 			var mouse_pos: Vector2 = get_global_mouse_position()

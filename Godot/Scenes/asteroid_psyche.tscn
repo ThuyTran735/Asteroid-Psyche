@@ -1,8 +1,8 @@
-[gd_scene load_steps=106 format=3 uid="uid://bnoferxl2wl4t"]
+[gd_scene load_steps=114 format=3 uid="uid://bnoferxl2wl4t"]
 
 [ext_resource type="PackedScene" uid="uid://bk044ya3dinr1" path="res://Scenes/billy.tscn" id="1_75q7w"]
 [ext_resource type="Script" path="res://Scripts/asteroid_psyche.gd" id="1_nudaw"]
-[ext_resource type="Texture2D" uid="uid://j03jopp7jbvd" path="res://Assets/Tiles/tile_sheet_128px_by_128px (1).png" id="2_wrd71"]
+[ext_resource type="Texture2D" uid="uid://j03jopp7jbvd" path="res://Assets/Tiles/Terrain/1stAnd2ndLayerSheet.png" id="2_pg38k"]
 [ext_resource type="Script" path="res://Scripts/Layers/FirstLayer.gd" id="3_lwx1y"]
 [ext_resource type="Script" path="res://Scripts/BlockAmount.gd" id="4_icqfs"]
 [ext_resource type="PackedScene" uid="uid://bpuyvbgkdpw00" path="res://Scenes/shop.tscn" id="4_vvju7"]
@@ -48,18 +48,21 @@
 [ext_resource type="PackedScene" uid="uid://etr1i3v7aqdh" path="res://Scenes/ui_.tscn" id="34_g7wry"]
 [ext_resource type="AudioStream" uid="uid://cctd7lgvwujif" path="res://Assets/Audio/Honeylune_Ridge.mp3" id="35_8kxrm"]
 [ext_resource type="Texture2D" uid="uid://dd3x7heen553m" path="res://Assets/Tiles/Ores/diamond-3.png" id="36_0v50a"]
+[ext_resource type="PackedScene" uid="uid://chriqrt1budwu" path="res://Scenes/wet_paint_alien.tscn" id="40_ifvte"]
+[ext_resource type="PackedScene" uid="uid://biysfybu3a2vc" path="res://Scenes/actionables.tscn" id="41_5clpp"]
+[ext_resource type="Script" path="res://Scripts/wet_paint_alien.gd" id="42_lshgd"]
+[ext_resource type="Resource" uid="uid://ca4rktkewpc56" path="res://Dialogues/main.dialogue" id="42_xvyc0"]
 [ext_resource type="PackedScene" uid="uid://dxu5b4g6uuykc" path="res://Scenes/Info Cards/gold_ore_info_card.tscn" id="45_kjsbe"]
 [ext_resource type="PackedScene" uid="uid://drh6vj58hge2e" path="res://Scenes/Info Cards/amethyst_ore_info_card.tscn" id="46_ag5b3"]
 [ext_resource type="PackedScene" uid="uid://i3jes505ovew" path="res://Scenes/Info Cards/sapphire_ore_info_card.tscn" id="47_h5u7x"]
 [ext_resource type="PackedScene" uid="uid://d1s81p0j56wqm" path="res://Scenes/Info Cards/emerald_ore_info_card.tscn" id="48_7goaj"]
 [ext_resource type="PackedScene" uid="uid://cf54yi5qb4kyc" path="res://Scenes/Info Cards/ruby_ore_info_card.tscn" id="49_r5ova"]
 [ext_resource type="PackedScene" uid="uid://bv00chj2veqlo" path="res://Scenes/Info Cards/diamond_ore_info_card.tscn" id="50_nyxmc"]
-[ext_resource type="PackedScene" uid="uid://dxdq7u2khk80l" path="res://Scenes/infomation_menu.tscn" id="53_uxxc7"]
-[ext_resource type="Script" path="res://Scripts/information_menu.gd" id="54_138bu"]
+[ext_resource type="PackedScene" uid="uid://dxdq7u2khk80l" path="res://Scenes/settings_menu.tscn" id="53_uxxc7"]
 [ext_resource type="PackedScene" uid="uid://chvj1d7lyfxl3" path="res://Scenes/parallax_background.tscn" id="57_dwnnh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lkaro"]
-texture = ExtResource("2_wrd71")
+texture = ExtResource("2_pg38k")
 texture_region_size = Vector2i(10, 10)
 0:0/0 = 0
 1:0/0 = 0
@@ -116,13 +119,12 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ebv2p")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4fr4a"]
-texture = ExtResource("2_wrd71")
+texture = ExtResource("2_pg38k")
 texture_region_size = Vector2i(10, 10)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
-1:0/next_alternative_id = 2
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -434,6 +436,8 @@ tile_size = Vector2i(10, 10)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_706eu")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6m6m"]
+
 [sub_resource type="Gradient" id="Gradient_6oo7u"]
 offsets = PackedFloat32Array(0, 0.0454545, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.928571, 0.928571, 0.928571, 1, 0, 0, 0, 1)
@@ -443,6 +447,18 @@ gradient = SubResource("Gradient_6oo7u")
 fill = 1
 fill_from = Vector2(0.509174, 0.5)
 fill_to = Vector2(0.784404, 0.275229)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqxef"]
+size = Vector2(20, 2020)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lmyf"]
+size = Vector2(1310, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nimy"]
+size = Vector2(43, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njxm1"]
+size = Vector2(20, 69)
 
 [node name="Asteroid Psyche" type="Node2D"]
 script = ExtResource("1_nudaw")
@@ -492,17 +508,48 @@ tile_set = SubResource("TileSet_tem4c")
 format = 2
 script = ExtResource("21_nlsn7")
 
+[node name="Shop" parent="." instance=ExtResource("4_vvju7")]
+modulate = Color(0.9, 0.9, 0.9, 1)
+position = Vector2(59, 0)
+
 [node name="CobbleStone" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xajsg")
 format = 2
 script = ExtResource("8_8kqas")
 
-[node name="Shop" parent="." instance=ExtResource("4_vvju7")]
-modulate = Color(0.9, 0.9, 0.9, 1)
-position = Vector2(59, 0)
+[node name="Wet Paint Alien" parent="." instance=ExtResource("40_ifvte")]
+position = Vector2(-562, -23)
+script = ExtResource("42_lshgd")
+
+[node name="Actionables" parent="Wet Paint Alien" instance=ExtResource("41_5clpp")]
+position = Vector2(0, -1)
+dialogue_resource = ExtResource("42_xvyc0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wet Paint Alien/Actionables"]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_g6m6m")
+
+[node name="Press E" type="RichTextLabel" parent="Wet Paint Alien"]
+offset_left = -12.0
+offset_top = -14.0
+offset_right = 113.0
+offset_bottom = 26.0
+scale = Vector2(0.2, 0.2)
+text = "Press \"E\" to talk"
+scroll_active = false
 
 [node name="Billy" parent="." instance=ExtResource("1_75q7w")]
-position = Vector2(0, 0)
+position = Vector2(-594, -21)
+
+[node name="Camera2D" type="Camera2D" parent="Billy"]
+position = Vector2(1, -4)
+zoom = Vector2(6, 6)
+limit_left = -810
+limit_top = -600
+limit_right = 880
+limit_bottom = 1420
+position_smoothing_speed = 3.0
+editor_draw_limits = true
 
 [node name="Control" type="Control" parent="Billy"]
 clip_children = 2
@@ -590,33 +637,30 @@ scale = Vector2(0.3, 0.3)
 text = "Blocks: "
 script = ExtResource("4_icqfs")
 
-[node name="Information" type="Button" parent="Billy/Control"]
+[node name="Settings" type="Button" parent="Billy/Control"]
 layout_mode = 0
 offset_left = 170.0
 offset_top = -3.0
 offset_right = 271.0
 offset_bottom = 28.0
 scale = Vector2(0.3, 0.3)
-text = "Information"
+text = "Settings"
 
-[node name="Information Menu" parent="Billy/Control" instance=ExtResource("53_uxxc7")]
-visible = false
-offset_left = 20.0
-offset_top = 7.0
-offset_right = 20.0
-offset_bottom = 7.0
+[node name="Settings Menu" parent="Billy/Control" instance=ExtResource("53_uxxc7")]
+offset_left = 70.0
+offset_top = 1.0
+offset_right = 70.0
+offset_bottom = 1.0
 scale = Vector2(0.2, 0.2)
-script = ExtResource("54_138bu")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Billy/Control"]
+position = Vector2(98, 53)
+remote_path = NodePath("../../Camera2D")
 
 [node name="PointLight2D" type="PointLight2D" parent="Billy"]
 energy = 0.5
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_bl5lk")
-
-[node name="Camera2D" type="Camera2D" parent="Billy"]
-position = Vector2(0, -3)
-zoom = Vector2(6, 6)
-position_smoothing_speed = 3.0
 
 [node name="Inv_Ui" parent="Billy" instance=ExtResource("34_g7wry")]
 visible = false
@@ -631,4 +675,39 @@ volume_db = -32.0
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("57_dwnnh")]
 
-[connection signal="pressed" from="Billy/Control/Information" to="Billy/Control/Information Menu" method="_on_information_pressed"]
+[node name="Border" type="Area2D" parent="."]
+disable_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Border"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(-610, 410)
+shape = SubResource("RectangleShape2D_jqxef")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(680, 410)
+shape = SubResource("RectangleShape2D_jqxef")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(35, -610)
+shape = SubResource("RectangleShape2D_6lmyf")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(35, 1430)
+shape = SubResource("RectangleShape2D_6lmyf")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(-578.5, -10)
+shape = SubResource("RectangleShape2D_3nimy")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(-547, -34.5)
+shape = SubResource("RectangleShape2D_njxm1")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Border/StaticBody2D"]
+position = Vector2(-578.5, -59)
+shape = SubResource("RectangleShape2D_3nimy")
+
+[connection signal="body_entered" from="Wet Paint Alien/Actionables" to="Wet Paint Alien" method="_on_actionables_body_entered"]
+[connection signal="body_exited" from="Wet Paint Alien/Actionables" to="Wet Paint Alien" method="_on_actionables_body_exited"]
+[connection signal="pressed" from="Billy/Control/Settings" to="Billy/Control/Settings Menu" method="_on_settings_pressed"]

@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://cm5o2qa6w045l" path="res://Assets/Audio/blocks/break/gravel1.ogg" id="2_h21n4"]
 
 [node name="Options Menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
