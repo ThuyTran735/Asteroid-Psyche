@@ -516,39 +516,41 @@ scale = Vector2(0.3, 0.3)
 
 [node name="Money" type="RichTextLabel" parent="Billy/Control"]
 layout_mode = 0
-offset_left = 2.0
-offset_right = 602.0
-offset_bottom = 30.0
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 594.0
+offset_bottom = 26.0
 scale = Vector2(0.3, 0.3)
 text = "Money: "
 script = ExtResource("6_y0pvf")
 
 [node name="BlockAmount" type="RichTextLabel" parent="Billy/Control"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 6.0
-offset_right = 602.0
-offset_bottom = 36.0
+offset_left = -6.0
+offset_top = 2.0
+offset_right = 594.0
+offset_bottom = 32.0
 scale = Vector2(0.3, 0.3)
 text = "Blocks: "
 script = ExtResource("4_icqfs")
 
 [node name="Time" type="RichTextLabel" parent="Billy/Control"]
+visible = false
 layout_mode = 0
-offset_left = 2.0
-offset_top = 6.0
-offset_right = 602.0
-offset_bottom = 36.0
+offset_left = -7.0
+offset_top = 14.0
+offset_right = 593.0
+offset_bottom = 44.0
 scale = Vector2(0.3, 0.3)
 text = "Blocks: "
 script = ExtResource("4_icqfs")
 
 [node name="Information" type="Button" parent="Billy/Control"]
 layout_mode = 0
-offset_left = 162.0
-offset_top = 1.0
-offset_right = 263.0
-offset_bottom = 32.0
+offset_left = 170.0
+offset_top = -3.0
+offset_right = 271.0
+offset_bottom = 28.0
 scale = Vector2(0.3, 0.3)
 text = "Information"
 
@@ -576,10 +578,9 @@ visible = false
 
 [node name="IwonderWhatThisDoes" type="AudioStreamPlayer" parent="Billy"]
 stream = ExtResource("35_8kxrm")
-volume_db = -31.796
+volume_db = -32.0
 
 [node name="jump" type="AudioStreamPlayer" parent="Billy"]
-volume_db = -31.796
 
 [node name="block" type="AudioStreamPlayer" parent="."]
 

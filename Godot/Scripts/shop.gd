@@ -36,6 +36,7 @@ func _on_area_2d_body_entered(body):
 		var audio_stream1 = load("res://Assets/Audio/shop/bd.ogg")
 		$shopmenu.visible = true
 		audio_player.stream = audio_stream1
+		audio_player.volume_db = Global.volume - 20
 		audio_player.play()
 
 func _on_area_2d_body_exited(body):
@@ -43,6 +44,7 @@ func _on_area_2d_body_exited(body):
 	var audio_stream1 = load("res://Assets/Audio/shop/bd.ogg")
 	$shopmenu.visible = false
 	audio_player.stream = audio_stream1
+	audio_player.volume_db = Global.volume - 20
 	audio_player.play()
 	
 

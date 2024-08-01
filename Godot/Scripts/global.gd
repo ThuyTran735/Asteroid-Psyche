@@ -23,7 +23,7 @@ var silver_ore_amount = 0
 var tungsten_ore_amount = 0
 var uranium_ore_amount = 0
 
-
+var volume = 0
 
 var item_main = 0 # Tool type
 var damage = 1 # Tool damage

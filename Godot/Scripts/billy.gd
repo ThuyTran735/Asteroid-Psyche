@@ -91,6 +91,7 @@ func _physics_process(delta):
 		var audio_player = $jump
 		var audio_stream1 = load("res://Assets/Audio/jump.mp3")
 		audio_player.stream = audio_stream1
+		audio_player.volume_db = Global.volume - 30
 		audio_player.play()
 		velocity.y = JUMP_VELOCITY
 
@@ -162,6 +163,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 	if $IwonderWhatThisDoes.playing == false:
+		$IwonderWhatThisDoes.volume_db = Global.volume - 40
 		$IwonderWhatThisDoes.play()
 		
 func _on_laser_timer_timeout():

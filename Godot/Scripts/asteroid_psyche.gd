@@ -28,6 +28,7 @@ func breaking():
 	
 	# Set the audio stream and play it
 	audio_player.stream = audio_streams[blockSound]
+	audio_player.volume_db = Global.volume - 15
 	audio_player.play()
 	
 func place():
@@ -49,4 +50,5 @@ func place():
 	
 	# Set the audio stream and play it
 	audio_player.stream = audio_streams[blockSound]
+	audio_player.volume_db = Global.volume - 15
 	audio_player.play()
