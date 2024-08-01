@@ -544,6 +544,8 @@ scroll_active = false
 position = Vector2(-594, -21)
 
 [node name="GameOverScreen" parent="Billy" instance=ExtResource("46_il21o")]
+offset_top = -65.0
+offset_right = 148.0
 
 [node name="Camera2D" type="Camera2D" parent="Billy"]
 position = Vector2(1, -4)
@@ -566,47 +568,38 @@ offset_right = 88.0
 offset_bottom = -17.0
 
 [node name="iron_ore_info_card" parent="Billy/Control" instance=ExtResource("29_1038x")]
-visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="copper_ore_info_card" parent="Billy/Control" instance=ExtResource("30_usvwu")]
-visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="silver_ore_info_card" parent="Billy/Control" instance=ExtResource("31_d2nqv")]
-visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="gold_ore_info_card" parent="Billy/Control" instance=ExtResource("45_kjsbe")]
-visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="amethyst_ore_info_card" parent="Billy/Control" instance=ExtResource("46_ag5b3")]
-visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="sapphire_ore_info_card" parent="Billy/Control" instance=ExtResource("47_h5u7x")]
-visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="emerald_ore_info_card" parent="Billy/Control" instance=ExtResource("48_7goaj")]
-visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="ruby_ore_info_card" parent="Billy/Control" instance=ExtResource("49_r5ova")]
-visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
 [node name="diamond_ore_info_card" parent="Billy/Control" instance=ExtResource("50_nyxmc")]
-visible = false
 position = Vector2(44, 14)
 scale = Vector2(0.3, 0.3)
 
@@ -614,7 +607,7 @@ scale = Vector2(0.3, 0.3)
 layout_mode = 0
 offset_left = -6.0
 offset_top = -4.0
-offset_right = 594.0
+offset_right = 207.0
 offset_bottom = 26.0
 scale = Vector2(0.3, 0.3)
 text = "Money: "
@@ -624,7 +617,7 @@ script = ExtResource("6_y0pvf")
 layout_mode = 0
 offset_left = -6.0
 offset_top = 2.0
-offset_right = 594.0
+offset_right = 201.0
 offset_bottom = 32.0
 scale = Vector2(0.3, 0.3)
 text = "Blocks: "
@@ -633,9 +626,9 @@ script = ExtResource("4_icqfs")
 [node name="Time" type="RichTextLabel" parent="Billy/Control"]
 layout_mode = 0
 offset_left = -6.0
-offset_top = 7.0
+offset_top = 8.0
 offset_right = 594.0
-offset_bottom = 37.0
+offset_bottom = 38.0
 scale = Vector2(0.3, 0.3)
 text = "Timer: "
 script = ExtResource("57_isudw")
@@ -653,6 +646,7 @@ scale = Vector2(0.3, 0.3)
 text = "Settings"
 
 [node name="Settings Menu" parent="Billy/Control" instance=ExtResource("53_uxxc7")]
+visible = false
 offset_left = 70.0
 offset_top = 1.0
 offset_right = 70.0

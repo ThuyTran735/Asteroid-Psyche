@@ -8,6 +8,8 @@ func _ready():
 	self.visible = false
 	
 func _process(delta):
+	if Global.game_ended:
+		$MarginContainer.visible = false
 	if target_control.visible == true:
 		button.visible = false
 	if Global.back_button == 0:

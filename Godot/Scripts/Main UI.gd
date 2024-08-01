@@ -15,7 +15,9 @@ func _process(delta):
 	# Convert integer to boolean for checking
 	if Global.back_button != 0:
 		$"..".visible = true
-
+	if Global.game_ended:
+		self.visible = false
+		
 func _on_back_pressed():
 	get_tree().paused = false
 	# Set the integer value to 0 (false)

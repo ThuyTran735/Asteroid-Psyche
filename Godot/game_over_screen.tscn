@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://jl1ar6vi0wim" path="res://Assets/logo.png" id="3_y0ue0"]
 
 [node name="GameOverScreen" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,25 +42,28 @@ script = ExtResource("2_54vlv")
 layout_mode = 0
 offset_left = 104.0
 offset_top = 5.0
-offset_right = 195.0
+offset_right = 193.0
 offset_bottom = 103.0
 texture = ExtResource("3_y0ue0")
 expand_mode = 5
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 171.0
-offset_top = 1.0
-offset_right = 208.0
-offset_bottom = 32.0
+offset_left = 174.0
+offset_top = 88.0
+offset_right = 211.0
+offset_bottom = 119.0
 scale = Vector2(0.5, 0.5)
 text = "Exit"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 1.0
-offset_right = 168.0
-offset_bottom = 32.0
+offset_left = 150.0
+offset_top = 3.0
+offset_right = 238.0
+offset_bottom = 34.0
 scale = Vector2(0.5, 0.5)
 text = "Play Again"
+
+[connection signal="pressed" from="Button" to="ColorRect" method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="ColorRect" method="_on_button_2_pressed"]
