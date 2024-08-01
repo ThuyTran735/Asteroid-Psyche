@@ -29,6 +29,7 @@ func _process(delta):
 	if Global.game_ended:
 		show_game_over_screen()
 		Global.back_button = 1
+		get_tree().paused = true
 		#$"../Control/Time".visible = false
 		#$"../Billy/Control/Money".visible = false
 		#$"../Billy/Control/BlockAmount".visible = false
