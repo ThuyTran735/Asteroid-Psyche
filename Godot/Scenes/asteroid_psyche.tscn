@@ -544,8 +544,10 @@ scroll_active = false
 position = Vector2(-594, -21)
 
 [node name="GameOverScreen" parent="Billy" instance=ExtResource("46_il21o")]
+offset_left = -106.0
 offset_top = -65.0
-offset_right = 148.0
+offset_right = 145.0
+scale = Vector2(1.12, 1.12)
 
 [node name="Camera2D" type="Camera2D" parent="Billy"]
 position = Vector2(1, -4)
