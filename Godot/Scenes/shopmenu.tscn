@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://cyd4m3ilc8ewv"]
 
 [ext_resource type="Script" path="res://Scripts/shopmenu.gd" id="1_gf40d"]
-[ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Shops/Tools/Basic_Pickaxe.png" id="2_l726j"]
-[ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Shops/Tools/Basic_Shovel.png" id="3_nver4"]
+[ext_resource type="Texture2D" uid="uid://bileunr75fsg3" path="res://Assets/Basic_Pickaxe.png" id="2_l726j"]
+[ext_resource type="Texture2D" uid="uid://2nhsqpoogaqf" path="res://Assets/Basic_Shovel.png" id="3_nver4"]
 [ext_resource type="Texture2D" uid="uid://t0wgjspw17my" path="res://Assets/Shops/Tools/Large_Drill.png" id="4_1a65d"]
 [ext_resource type="Texture2D" uid="uid://y660w85wcsid" path="res://Assets/Shops/Tools/Laser_Drill.png" id="5_3ekva"]
 [ext_resource type="Texture2D" uid="uid://3dk2sgw8br4y" path="res://Assets/Shops/Tools/Medium_Drill.png" id="6_wva01"]
 [ext_resource type="Texture2D" uid="uid://bhkys836o1wun" path="res://Assets/Shops/Tools/Small_Drill.png" id="7_85jdk"]
-[ext_resource type="Texture2D" uid="uid://mo6xitljy3ei" path="res://Assets/Shops/white_arrow.png" id="8_3ihoh"]
+[ext_resource type="Texture2D" uid="uid://mo6xitljy3ei" path="res://Assets/pixil-frame-0 (17).png" id="8_3ihoh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7o1td"]
 atlas = ExtResource("2_l726j")
@@ -149,6 +149,7 @@ text = "Buy"
 metadata/_edit_use_anchors_ = true
 
 [node name="purchase" type="AudioStreamPlayer" parent="."]
+volume_db = 4.685
 
 [connection signal="pressed" from="ButtonLeft" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="ButtonRight" to="." method="_on_button_right_pressed"]
