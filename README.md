@@ -1,0 +1,1 @@
+I was not able to make the character take knockback if they are standing still. I think the solution has something to do with the collision masks and layer, but I could not figure out how to change it with out also changing the collisions.
