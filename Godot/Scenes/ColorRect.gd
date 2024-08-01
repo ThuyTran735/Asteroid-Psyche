@@ -14,14 +14,12 @@ func _on_button_pressed():
 
 
 func _on_button_2_pressed():
-	var game_over_screen = $GameOverScreen  # Replace with the actual path to your Game Over screen node
-	game_over_screen.visible = false
-	$"../Billy/Control/Information".visible = true 
-	$"../Billy/Control/Time".visible = true 
-	$"../Billy/Control/Money".visible = true
-	$"../Billy/Control/BlockAmount".visible = true
+	$"..".visible = false
+	Global.reset = 1
 	Global.reset_state()
 	get_tree().reload_current_scene()
+	if Global.reset == 1:
+		$"..".visible = false
 
 
 func _process(delta):	

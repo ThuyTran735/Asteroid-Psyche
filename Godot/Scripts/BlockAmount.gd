@@ -6,8 +6,7 @@ func _process(delta):
 	var formatted_money = format_number(Global.blocks)
 	var text = default_text + formatted_money
 	self.text = text
-	if Global.game_ended:
-		self.visible = false
+
 func format_number(value):
 	var str_value = str(value)
 	var result = ""

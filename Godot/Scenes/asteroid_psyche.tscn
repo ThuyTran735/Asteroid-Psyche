@@ -560,6 +560,7 @@ position_smoothing_speed = 3.0
 editor_draw_limits = true
 
 [node name="Control" type="Control" parent="Billy"]
+process_mode = 3
 clip_children = 2
 layout_direction = 2
 layout_mode = 3

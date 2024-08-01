@@ -3,11 +3,19 @@ extends RichTextLabel
 var default_text = "Money: $"
 
 func _process(delta):
+	if Global.game_ended == true:
+		$"..".visible = false
+	if Global.reset == 1:
+		$"../Settings".visible = true 
+		$"../Time".visible = true
+		$"../Money".visible = true
+		$"../BlockAmount".visible = true
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://Scenes/asteroid_psyche.tscn")
+		Global.reset_state()
 	var formatted_money = format_number(Global.money)
 	var text = default_text + formatted_money
 	self.text = text
-	if Global.game_ended:
-		self.visible = false
 
 func format_number(value):
 	var str_value = str(value)
