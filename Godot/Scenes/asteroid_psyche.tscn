@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://bnoferxl2wl4t"]
+[gd_scene load_steps=116 format=3 uid="uid://bnoferxl2wl4t"]
 
 [ext_resource type="PackedScene" uid="uid://bk044ya3dinr1" path="res://Scenes/billy.tscn" id="1_75q7w"]
 [ext_resource type="Script" path="res://Scripts/asteroid_psyche.gd" id="1_nudaw"]
@@ -54,12 +54,14 @@
 [ext_resource type="Resource" uid="uid://ca4rktkewpc56" path="res://Dialogues/main.dialogue" id="42_xvyc0"]
 [ext_resource type="PackedScene" uid="uid://dxu5b4g6uuykc" path="res://Scenes/Info Cards/gold_ore_info_card.tscn" id="45_kjsbe"]
 [ext_resource type="PackedScene" uid="uid://drh6vj58hge2e" path="res://Scenes/Info Cards/amethyst_ore_info_card.tscn" id="46_ag5b3"]
+[ext_resource type="PackedScene" uid="uid://f84g8m7qyycj" path="res://game_over_screen.tscn" id="46_il21o"]
 [ext_resource type="PackedScene" uid="uid://i3jes505ovew" path="res://Scenes/Info Cards/sapphire_ore_info_card.tscn" id="47_h5u7x"]
 [ext_resource type="PackedScene" uid="uid://d1s81p0j56wqm" path="res://Scenes/Info Cards/emerald_ore_info_card.tscn" id="48_7goaj"]
 [ext_resource type="PackedScene" uid="uid://cf54yi5qb4kyc" path="res://Scenes/Info Cards/ruby_ore_info_card.tscn" id="49_r5ova"]
 [ext_resource type="PackedScene" uid="uid://bv00chj2veqlo" path="res://Scenes/Info Cards/diamond_ore_info_card.tscn" id="50_nyxmc"]
 [ext_resource type="PackedScene" uid="uid://dxdq7u2khk80l" path="res://Scenes/settings_menu.tscn" id="53_uxxc7"]
 [ext_resource type="PackedScene" uid="uid://chvj1d7lyfxl3" path="res://Scenes/parallax_background.tscn" id="57_dwnnh"]
+[ext_resource type="Script" path="res://Scenes/Time.gd" id="57_isudw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lkaro"]
 texture = ExtResource("2_pg38k")
@@ -541,6 +543,8 @@ scroll_active = false
 [node name="Billy" parent="." instance=ExtResource("1_75q7w")]
 position = Vector2(-594, -21)
 
+[node name="GameOverScreen" parent="Billy" instance=ExtResource("46_il21o")]
+
 [node name="Camera2D" type="Camera2D" parent="Billy"]
 position = Vector2(1, -4)
 zoom = Vector2(6, 6)
@@ -627,15 +631,17 @@ text = "Blocks: "
 script = ExtResource("4_icqfs")
 
 [node name="Time" type="RichTextLabel" parent="Billy/Control"]
-visible = false
 layout_mode = 0
-offset_left = -7.0
-offset_top = 14.0
-offset_right = 593.0
-offset_bottom = 44.0
+offset_left = -6.0
+offset_top = 7.0
+offset_right = 594.0
+offset_bottom = 37.0
 scale = Vector2(0.3, 0.3)
-text = "Blocks: "
-script = ExtResource("4_icqfs")
+text = "Timer: "
+script = ExtResource("57_isudw")
+
+[node name="Timer" type="Timer" parent="Billy/Control/Time"]
+autostart = true
 
 [node name="Settings" type="Button" parent="Billy/Control"]
 layout_mode = 0
