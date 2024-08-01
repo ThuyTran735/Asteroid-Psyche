@@ -669,10 +669,13 @@ visible = false
 
 [node name="IwonderWhatThisDoes" type="AudioStreamPlayer" parent="Billy"]
 stream = ExtResource("35_8kxrm")
+volume_db = 24.0
 
 [node name="jump" type="AudioStreamPlayer" parent="Billy"]
+volume_db = -80.0
 
 [node name="block" type="AudioStreamPlayer" parent="."]
+volume_db = -25.0
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("57_dwnnh")]
 

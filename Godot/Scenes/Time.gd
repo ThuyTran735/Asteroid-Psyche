@@ -13,11 +13,12 @@ func _ready():
 		print("Error: Timer node not found!")
 
 func _process(delta):
+	if Global.game_ended:
+		self.visible = false
 	if not Global.game_ended:
 		var formatted_time = format_time(Global.elapsed_time)
 		self.text = default_text + formatted_time
-	if Global.game_ended:
-		self.visible = false
+	
 
 func format_time(value: float) -> String:
 	var minutes = int(value / 60)
