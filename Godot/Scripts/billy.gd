@@ -91,7 +91,7 @@ func _physics_process(delta):
 		var audio_player = $jump
 		var audio_stream1 = load("res://Assets/Audio/jump.mp3")
 		audio_player.stream = audio_stream1
-		audio_player.volume_db = Global.volume - 30
+		audio_player.volume_db = Global.volume - 35
 		audio_player.play()
 		velocity.y = JUMP_VELOCITY
 
